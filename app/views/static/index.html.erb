@@ -1,21 +1,5 @@
-<section id="cover">
-    <div id="cover-caption">
-        <div class="container">
-            <div class="col-sm-10 col-sm-offset-1">
-								<h1>Social Network for developers</h1>
-								<p>A place to share ideas,stories,socialize with fellow developers like you!</p>
-								<p>Please join or login to continue</p>
-								<form class="form" action="">
-										<div class="form-group">
-												<input class="form-control form-control-lg" placeholder="username"/>
-												<br/>
-												<input class="form-control form-control-lg" placeholder="password"/>
-												<br/>
-										</div>
-										<button type="submit" class="btn btn-success btn-lg">Sign In!</button>
-										<button type="submit" class="btn btn-success btn-lg">Join Us!</button>
-								</form>
-						</div>
-        </div>
-    </div>
-</section>
+
+<% if user_signed_in? == false %>
+		<h1 style="text-align: center;">Please login or signup</h1>
+		<%= render "devise/sessions/form" %>
+<% end %>
