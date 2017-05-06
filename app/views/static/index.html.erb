@@ -1,7 +1,15 @@
 <br/>
 <br/>
 <br/>
-<% if user_signed_in? == false %>
+<% if !user_signed_in? %>
 		<h1 style="text-align: center;">Please login or signup</h1>
 		<%= render "devise/sessions/form" %>
 <% end %>
+
+<% @posts.each do |post| %>
+		User Email: <%= post.email %> <br/>
+		Title: <%= post.title %> <br/>
+		Body: <%= post.body %>
+		<br/>
+		<br/>
+<% end  %>

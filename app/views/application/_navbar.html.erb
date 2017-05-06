@@ -8,10 +8,13 @@
 				<%= link_to "Social network",root_path,class: "navbar-brand"%>
 		<% end %>
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav mr-auto">
+				<ul class="navbar-nav mr-auto nav nav-pills">
 						<% if user_signed_in? %>
 								<li class="nav-item">
 										<%= link_to "Signout",destroy_user_session_path,class: "nav-link", method: :delete%>
+								</li>
+								<li class="nav-item">
+										<%= link_to "write new post",new_post_path, class: "nav-link"%>
 								</li>
 						<% else %>
 								<li class="nav-item">
