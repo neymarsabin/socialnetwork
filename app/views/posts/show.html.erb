@@ -4,3 +4,7 @@
 		<%= link_to "edit", edit_post_path,  class: "btn btn-primary"%>
 		<%= link_to "delete post",post_path,method: :delete,class: "btn btn-primary"%>
 <% end %>		
+
+<h1>here are some comments</h1>
+<%= render partial: "posts/comments" %>
+<%= render partial: "comments/comment_form" %>

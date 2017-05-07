@@ -1,0 +1,14 @@
+<h1>edit comment</h1>
+
+<div class="container create-post">
+		<%= form_for [@post,@comments ] do |f|  %>
+				<div class="form-group row">
+						<label for="example-color-input" class="col-2 col-form-label">Body</label>
+						<div class="col-10">
+								<%= f.text_area :body,class: "form-control" %>
+						</div>
+				</div>
+				<%= f.comment "Update Post", class: "btn btn-primary"%>
+		<% end %>
+</div>
+

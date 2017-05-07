@@ -13,6 +13,10 @@ class PostsController < ApplicationController
   end
 
   def show
+    @comments = @post.comments
+    @comment = Comment.new
+    @comment.post_id = @post.id
+    @comment.user_id = current_user.id
   end 
 
   def edit
