@@ -9,7 +9,8 @@
 <% @posts.each do |post| %>
 		User Email: <%= post.email %> <br/>
 		Title: <%= post.title %> <br/>
-		Body: <%= post.body %>
+		Body: <%= post.body %> <br/>
+		<%= link_to "read",post,class: "btn btn-primary"%>
 		<br/>
 		<br/>
-<% end  %>
+<% end %>

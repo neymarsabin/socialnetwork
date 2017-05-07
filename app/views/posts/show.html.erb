@@ -1,0 +1,11 @@
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+<h1><%= @post.title %></h1>
+<p><%= @post.body %></p>
+<% if current_user == @post.user %>
+		<%= link_to "delete post",post_path,method: :delete,class: "btn btn-primary"%>
+<% end %>		

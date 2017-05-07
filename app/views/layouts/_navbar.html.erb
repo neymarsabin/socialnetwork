@@ -1,20 +1,18 @@
-<nav class="navbar navbar-toggleable-md navbar-light bg-faded fixed-top">
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded ">
 		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 		</button>
-		<% if user_signed_in? %>
-				<% link_to current_user.email ,root_path,class: "navbar-brand"%>
-		<% else %>
-				<%= link_to "Social network",root_path,class: "navbar-brand"%>
-		<% end %>
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto nav nav-pills">
 						<% if user_signed_in? %>
 								<li class="nav-item">
-										<%= link_to "Signout",destroy_user_session_path,class: "nav-link", method: :delete%>
+										<%= link_to "write new post",new_post_path, class: "nav-link"%>
 								</li>
 								<li class="nav-item">
-										<%= link_to "write new post",new_post_path, class: "nav-link"%>
+										<%= link_to current_user.email,root_path, class: "nav-link"%>
+								</li>
+								<li class="nav-item">
+										<%= link_to "Signout",destroy_user_session_path,class: "nav-link btn btn-warning navbar-right", method: :delete %>
 								</li>
 						<% else %>
 								<li class="nav-item">
