@@ -9,12 +9,14 @@
   </head>
 
   <body>
-			<%= render "navbar" %>
+			<%= render "layouts/navbar" %>
 			<% flash.each do |key,value| %>
 			<div class="alert alert-warning" role="alert">
 					<strong><%= value %></strong> 
 			</div>
 			<% end %>
-			<%= yield %>
+			<div class="conatiner <%= controller_name %> <%= action_name %>">
+					<%= yield %>
+			</div>
   </body>
 </html>

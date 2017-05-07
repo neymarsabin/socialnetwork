@@ -1,5 +1,5 @@
-<h1>Hello world</h1>
-<%= @post.email %> <br/>
-<%= @post.title %><br/>
-<%= @post.body %>
-
+<h1><%= @post.title %></h1>
+<p><%= @post.body %></p>
+<% if current_user == @post.user %>
+		<%= link_to "delete post",post_path,method: :delete,class: "btn btn-primary"%>
+<% end %>		

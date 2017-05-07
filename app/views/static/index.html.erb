@@ -6,17 +6,13 @@
 		<%= render "devise/sessions/form" %>
 <% end %>
 
-<div class="container" style="margin-top: 30px;">
-		<% @posts.each do |post| %>
-				<br/>
-				<br/>
-				<div class="card" style="width: 20rem;">
- 						<!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
-						<div class="card-block">
-								<h3 class="card-title"><%= post.title %></h3>
-								<p class="card-title"><%= post.email %></p>
-								<%= link_to "Show",post_path(post),class: "btn btn-primary" %>
-						</div>
-				</div>
-		<% end %>
-</div>
+
+<% @posts.each do |post| %>
+		User Email: <%= post.email %> <br/>
+		Title: <%= post.title %> <br/>
+		Body: <%= post.body %> <br/>
+		<%= link_to "read",post,class: "btn btn-primary"%>
+		<br/>
+		<br/>
+<% end %>
+

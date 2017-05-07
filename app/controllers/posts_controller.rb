@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_post, only: [:show,:destroy]
 
   def new
     @post = Post.new
@@ -12,10 +13,25 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
   end 
 
+  def destroy
+    if current_user == @post.user
+      @post.destroy
+      flash[:notice] = "Sucessfully deleted the post: #{@post.title}"
+      redirect_to root_path
+    else
+      flash[:notice] = "You are not authorized to delete this post"
+      redirect_to post_path
+    end
+  end
+  
   private
+
+  def set_post
+    @post = Post.find(params[:id])
+  end
+
   def post_params
     params.require(:post).permit(:title,:body)
   end
