@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_post, only: [:show,:destroy]
+  before_action :set_post, only: [:show,:destroy,:update]
 
   def new
     @post = Post.new
@@ -14,6 +14,16 @@ class PostsController < ApplicationController
 
   def show
   end 
+
+  def update
+    if current_user == @post.user
+      @post.update
+      @post.save
+      flash[:notice] == "Edit successfull: #{@post.title} "
+      redirect_to root_path
+    end
+  end
+
 
   def destroy
     if current_user == @post.user
