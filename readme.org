@@ -43,6 +43,7 @@
 	 #+BEGIN_SRC sh 
 	 rails db:create
 	 #+END_SRC
+
 	 
 ** Check in mysql console before performing these actions: 
 *** create a mysql user as socialnetwork
