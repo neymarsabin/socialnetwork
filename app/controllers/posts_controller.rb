@@ -17,10 +17,10 @@ class PostsController < ApplicationController
 
   def update
     if current_user == @post.user
-      @post.update
+      @post.update(post_params)
       @post.save
       flash[:notice] == "Edit successfull: #{@post.title} "
-      redirect_to root_path
+      redirect_to @post
     end
   end
 
