@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   root 'static#index'
   get 'about',to: 'static#about'
   get 'contact',to: 'static#contact'
-  resources :posts, only: [:new,:create,:show,:destroy]
+  resources :posts, only: [:new,:create,:show,:destroy,:update,:edit]
 end

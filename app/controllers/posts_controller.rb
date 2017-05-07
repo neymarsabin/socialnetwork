@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_post, only: [:show,:destroy,:update]
+  before_action :set_post, only: [:show,:destroy,:update,:edit]
 
   def new
     @post = Post.new
@@ -15,6 +15,8 @@ class PostsController < ApplicationController
   def show
   end 
 
+  def edit
+  end 
   def update
     if current_user == @post.user
       @post.update(post_params)
