@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @question.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @question.body %>
+</p>
+<small>number of answers::: </small><%= @question.answers.count %> <br/>
+<%= render @question.answers %>
+
+<h3>Reply to thread </h3>
+<%= render "answers/form" %>
+<br/>
+
+<%= link_to 'Edit', edit_question_path(@question) %> |
+<%= link_to 'Back', questions_path %>

@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170507161506) do
+ActiveRecord::Schema.define(version: 20170514071232) do
+
+  create_table "answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "body",        limit: 65535
+    t.integer  "post_id"
+    t.integer  "user_id"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.integer  "question_id"
+    t.index ["post_id"], name: "index_answers_on_post_id", using: :btree
+    t.index ["user_id"], name: "index_answers_on_user_id", using: :btree
+  end
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "body",       limit: 65535
@@ -29,6 +40,14 @@ ActiveRecord::Schema.define(version: 20170507161506) do
     t.datetime "updated_at",               null: false
     t.integer  "user_id"
     t.index ["user_id"], name: "index_posts_on_user_id", using: :btree
+  end
+
+  create_table "questions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "title"
+    t.text     "body",       limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "user_id"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -53,5 +72,7 @@ ActiveRecord::Schema.define(version: 20170507161506) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "answers", "posts"
+  add_foreign_key "answers", "users"
   add_foreign_key "posts", "users"
 end
