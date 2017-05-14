@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
-
+  
   def create
     @comment = Comment.new(comment_params)
     @comment.post_id = params[:post_id]
@@ -22,9 +22,24 @@ class CommentsController < ApplicationController
     end
   end 
 
-  private
-    
-    def comment_params
-      params.require(:comment).permit(:body)
+  def edit
+    @post = Post.find_by(params[:post_id])
+    @comment = @post.comments.find_by(params[:comment])
+  end
+
+  def update
+    if @comment.save(comment_params)
+      flash[:notice] = "Edit comment complete"
+    else
+      flash[:notice] = "Cannot edit comment"
     end
+  end 
+
+  
+  private
+
+  def comment_params
+    params.require(:comment).permit(:post_id,:body)
+  end
+  
 end 
