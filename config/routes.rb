@@ -9,6 +9,10 @@ Rails.application.routes.draw do
   get 'contact',to: 'static#contact'
   resources :posts, only: [:new,:create,:show,:destroy,:update,:edit] do
     resources :comments, except: [:show,:index]
+    member do
+      put "like" => "posts#upvote"
+      put "dislike" => "posts#downvote"
+    end
   end
   
   

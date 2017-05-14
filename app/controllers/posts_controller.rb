@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_post, only: [:show,:destroy,:update,:edit]
+  before_action :set_post, only: [:show,:destroy,:update,:edit,:upvote,:downvote]
 
   def new
     @post = Post.new
@@ -41,7 +41,17 @@ class PostsController < ApplicationController
       redirect_to post_path
     end
   end
+
+  def upvote
+    @post.upvote_from current_user
+    redirect_to :back
+  end
   
+  def downvote
+    @post.downvote_from current_user
+    redirect_to :back
+  end
+
   private
 
   def set_post

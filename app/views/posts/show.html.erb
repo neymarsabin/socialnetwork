@@ -5,6 +5,13 @@
 		<%= link_to "delete post",post_path,method: :delete,class: "btn btn-primary"%>
 <% end %>		
 
+<%= link_to "like" , like_post_path(@post), class: "like", method: :put %>
+<%= @post.get_upvotes.size %>
+<%= link_to "dislike",dislike_post_path(@post),class: "dislike",method: :put %>
+<%= @post.get_downvotes.size %>
+
+
+
 <h1>here are some comments</h1>
 <%= render partial: "comments/comments" %>
 <%= render partial: "comments/comment_form" %>

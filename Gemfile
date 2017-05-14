@@ -18,7 +18,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootstrap', '~> 4.0.0.alpha3'
 gem 'devise'
 gem 'simple_form'
-
+gem 'acts_as_votable'
 
 group :development, :test do
   gem 'byebug', platform: :mri
