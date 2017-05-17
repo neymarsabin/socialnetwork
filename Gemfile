@@ -19,6 +19,10 @@ gem 'bootstrap', '~> 4.0.0.alpha3'
 gem 'devise'
 gem 'simple_form'
 gem 'acts_as_votable'
+gem 'recommendable'
+gem 'redis'
+gem 'sidekiq'
+
 
 group :development, :test do
   gem 'byebug', platform: :mri
