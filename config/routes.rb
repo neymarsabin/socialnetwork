@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   resources :posts, only: [:new,:create,:show,:destroy,:update,:edit] do
     resources :comments, except: [:show,:index]
     member do
-      put "like" => "posts#upvote"
-      put "dislike" => "posts#downvote"
+      put "like" => "posts#like"
+      put "dislike" => "posts#dislike"
     end
   end
   

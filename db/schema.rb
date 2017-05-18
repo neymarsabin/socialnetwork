@@ -14,12 +14,10 @@ ActiveRecord::Schema.define(version: 20170514085632) do
 
   create_table "answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "body",        limit: 65535
-    t.integer  "post_id"
     t.integer  "user_id"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.integer  "question_id"
-    t.index ["post_id"], name: "index_answers_on_post_id", using: :btree
     t.index ["user_id"], name: "index_answers_on_user_id", using: :btree
   end
 
@@ -86,7 +84,6 @@ ActiveRecord::Schema.define(version: 20170514085632) do
     t.index ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
   end
 
-  add_foreign_key "answers", "posts"
   add_foreign_key "answers", "users"
   add_foreign_key "posts", "users"
 end

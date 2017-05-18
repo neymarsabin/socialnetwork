@@ -3,7 +3,7 @@ class AnswersController < ApplicationController
     @question = Question.find(params[:question_id])
     @answer = @question.answers.create(params[:answer].permit(:body))
     @answer.user_id = current_user.id
-    @answer.post_id = 19
+    @answer.post_id = 25
     @answer.save
     
     if @answer.save

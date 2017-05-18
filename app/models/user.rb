@@ -10,4 +10,7 @@ class User < ApplicationRecord
   has_many :answers,dependent: :destroy
 
   acts_as_voter
+
+  recommends :posts
+  
 end

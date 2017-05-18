@@ -1,1 +1,7 @@
-<h1>About page</h1>
+<h1>Posts you may also like</h1>
+Username : <%= current_user.email %> <br/>
+Recommended posts
+<% @recommended_posts.each do |post| %>
+		<%= post.title %> <br/>
+		<%= post.id %> <br/>
+<% end %>

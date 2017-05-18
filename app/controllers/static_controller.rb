@@ -4,6 +4,7 @@ class StaticController < ApplicationController
   end
 
   def about
+    @recommended_posts = current_user.recommended_posts
   end
 
   def contact
