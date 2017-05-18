@@ -15,6 +15,10 @@ Rails.application.routes.draw do
       put "dislike" => "posts#downvote"
     end
   end
-  
+
+  root 'conversations#index'
+  resources :personal_messages, only: [:create,:new]
+  resources :conversations, only: [:index,:show]
+  resources :users,only: [:index]
   
 end

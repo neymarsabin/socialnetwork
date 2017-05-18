@@ -17,6 +17,9 @@
 								<li class="nav-item">
 										<%= link_to "Signout",destroy_user_session_path,class: "nav-link", method: :delete %>
 								</li>
+								<li class="nav-item">
+										<%= link_to 'Users', users_path,class: "nav-link" %>
+								</li>
 						<% else %>
 								<li class="nav-item">
 										<%= link_to "Sign up",new_user_registration_path, class: "nav-link"%>
