@@ -1,0 +1,12 @@
+<h1>Your posts</h1>
+<% @posts.each do |post| %>
+		<%= post.id %> <br/>
+		<%= post.body %> <br/>
+<% end %>
+
+
+<h1>Your questions</h1>
+<% @questions.each do |question| %>
+		<%= question.id %> <br/>
+		<%= question.body %> <br/>
+<% end %>

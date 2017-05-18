@@ -20,6 +20,7 @@ gem 'devise'
 gem 'simple_form'
 gem 'acts_as_votable'
 
+
 group :development, :test do
   gem 'byebug', platform: :mri
 end
