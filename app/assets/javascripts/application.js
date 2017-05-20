@@ -13,6 +13,7 @@
 //= require jquery
 //= require bootstrap
 //= require jquery_ujs
+//= require trix
 //= require turbolinks
 //= require conversations
 //= require_tree .
