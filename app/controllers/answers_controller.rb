@@ -3,10 +3,10 @@ class AnswersController < ApplicationController
     @question = Question.find(params[:question_id])
     @answer = @question.answers.create(params[:answer].permit(:body))
     @answer.user_id = current_user.id
-    @answer.post_id = 19
     @answer.save
     
     if @answer.save
+      flash[:notice] = "Your answer was successfully submitted..."
       redirect_to question_path(@question)
     else
       flash[:notice] = "Answer was not saved!!!"
