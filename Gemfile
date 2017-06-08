@@ -22,7 +22,8 @@ gem 'acts_as_votable'
 gem 'sidekiq'
 gem 'recommendable'
 gem 'redis'
-
+gem 'predictionio'
+gem 'predictable'
 
 
 group :development, :test do

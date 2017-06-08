@@ -11,6 +11,7 @@ class User < ApplicationRecord
 
   acts_as_voter
 
-  recommends :posts
+  #recommends :posts
+  include Predictable::User
   
 end

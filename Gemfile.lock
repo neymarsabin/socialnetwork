@@ -79,6 +79,7 @@ GEM
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
+    json (1.8.6)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -98,6 +99,11 @@ GEM
     nokogiri (1.7.1)
       mini_portile2 (~> 2.1.0)
     orm_adapter (0.5.0)
+    predictable (0.0.2)
+      activerecord
+      predictionio
+    predictionio (0.9.6)
+      json (~> 1.8)
     puma (3.8.2)
     rack (2.0.1)
     rack-protection (2.0.0)
@@ -200,6 +206,8 @@ DEPENDENCIES
   jquery-rails
   listen (~> 3.0.5)
   mysql2 (>= 0.3.18, < 0.5)
+  predictable
+  predictionio
   puma (~> 3.0)
   rails (~> 5.0.2)
   recommendable
