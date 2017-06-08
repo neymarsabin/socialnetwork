@@ -21,6 +21,8 @@ gem 'simple_form'
 gem 'acts_as_votable'
 gem 'trix'
 gem 'redis'
+gem 'wysiwyg-rails'
+
 
 group :development, :test do
   gem 'byebug', platform: :mri

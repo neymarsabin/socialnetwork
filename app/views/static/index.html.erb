@@ -9,7 +9,7 @@
  				<ul>
 						<% @posts.each do |post| %>
 								<li>Title: <%= post.title %> <br/> </li>
-								<li>Body: <%= post.body.html_safe %></li>
+								<li>Body: <%= raw(post.body) %></li>
 								<li>User Email: <%= post.email %> <br/></li>
 								<%= link_to "read",post,class: "btn btn-warning"%>
 								<br/>
