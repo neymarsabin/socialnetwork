@@ -1,7 +1,7 @@
 <h1>Your posts</h1>
 <% @posts.each do |post| %>
 		<%= post.id %> <br/>
-		<%= post.body %> <br/>
+		<%= post.body.html_safe %> <br/>
 <% end %>
 
 

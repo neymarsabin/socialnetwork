@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   root 'static#index'
   get 'about',to: 'static#about'
   get 'contact',to: 'static#contact'
-  get 'profile/:id',to: 'static#profile'
+  get 'profile',to: 'static#profile'
   resources :posts, only: [:new,:create,:show,:destroy,:update,:edit] do
     resources :comments, except: [:show,:index]
     member do
