@@ -1,6 +1,7 @@
 <br/>
 <br/>
 <br/>
+
 <% if !user_signed_in? %>
 		<%= render "devise/sessions/form" %>
 		<%= render "static/whatwedo" %>
@@ -10,7 +11,7 @@
 						<% @posts.each do |post| %>
 								<li>Title: <%= post.title %> <br/> </li>
 								<li>Body: <%= post.body.html_safe %></li>
-								<li>User Email: <%= post.email %> <br/></li>
+								<li>User Email: <%= post.email %> <br/></li></div>
 								<%= link_to "read",post,class: "btn btn-warning"%>
 								<br/>
 								<br/>
