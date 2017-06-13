@@ -67,6 +67,8 @@ GEM
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.18)
+    font-awesome-sass (4.7.0)
+      sass (>= 3.2)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     hooks (0.4.1)
@@ -137,10 +139,13 @@ GEM
     rb-fsevent (0.9.8)
     rb-inotify (0.9.8)
       ffi (>= 0.5.0)
+<<<<<<< HEAD
     recommendable (2.2.0)
       activesupport (>= 3.0.0)
       hooks (>= 0.2.1)
       redis (>= 2.2.0)
+=======
+>>>>>>> master
     redis (3.3.3)
     responders (2.3.0)
       railties (>= 4.2.0, < 5.1)
@@ -174,6 +179,8 @@ GEM
     thor (0.19.4)
     thread_safe (0.3.6)
     tilt (2.0.7)
+    trix (0.10.1)
+      rails
     turbolinks (5.0.1)
       turbolinks-source (~> 5)
     turbolinks-source (5.0.2)
@@ -192,6 +199,9 @@ GEM
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
+    wysiwyg-rails (2.6.1)
+      font-awesome-sass (~> 4.4, >= 4.4.0)
+      railties (>= 3.2, < 6.0)
 
 PLATFORMS
   ruby
@@ -210,17 +220,22 @@ DEPENDENCIES
   predictionio
   puma (~> 3.0)
   rails (~> 5.0.2)
+<<<<<<< HEAD
   recommendable
+=======
+>>>>>>> master
   redis
   sass-rails (~> 5.0)
   sidekiq
   simple_form
   spring
   spring-watcher-listen (~> 2.0.0)
+  trix
   turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
+  wysiwyg-rails
 
 BUNDLED WITH
    1.14.6

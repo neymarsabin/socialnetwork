@@ -8,5 +8,11 @@ class StaticController < ApplicationController
   end
 
   def contact
+    
+  end
+
+  def profile
+    @posts = current_user.posts.all
+    @questions = current_user.questions.all
   end
 end

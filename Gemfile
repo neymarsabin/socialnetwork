@@ -24,6 +24,9 @@ gem 'recommendable'
 gem 'redis'
 gem 'predictionio'
 gem 'predictable'
+gem 'trix'
+gem 'redis'
+gem 'wysiwyg-rails'
 
 
 group :development, :test do

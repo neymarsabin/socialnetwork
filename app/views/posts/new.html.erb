@@ -12,9 +12,18 @@
 				<div class="form-group row">
 						<label for="example-color-input" class="col-2 col-form-label">Body</label>
 						<div class="col-10">
-								<%= f.text_area :body,class: "form-control" %>
+								<%= f.text_area :body, class: "form-control", id: "wysiwyg" %>
 						</div>
 				</div>
 				<%= f.submit "Create Post", class: "btn btn-primary"%>
 		<% end %>
 </div>
+
+
+<script>
+ $('#wysiwyg').froalaEditor({
+     inlineMode: false,
+     heightMin: '200px',
+     /* toolbarButtons: ['bold', 'italic', 'underline'],*/
+ })
+</script>

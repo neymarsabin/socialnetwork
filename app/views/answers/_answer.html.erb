@@ -1,3 +1,5 @@
-<%= answer.body %> <br/> 
-<%= answer.user.email %> <br/> <br/>
-<%= time_ago_in_words(answer.created_at) %>  <br/>
+<div class="card answer-section">
+		<%= answer.body %> <br/> 
+		<%= answer.user.email %> <br/>
+		<%= time_ago_in_words(answer.created_at) %><br/>
+</div>

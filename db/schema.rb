@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170514085632) do
+ActiveRecord::Schema.define(version: 20170518074808) do
 
   create_table "answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "body",        limit: 65535
@@ -29,6 +29,26 @@ ActiveRecord::Schema.define(version: 20170514085632) do
     t.integer  "post_id"
     t.index ["post_id"], name: "index_comments_on_post_id", using: :btree
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
+  end
+
+  create_table "conversations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "author_id"
+    t.integer  "receiver_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["author_id", "receiver_id"], name: "index_conversations_on_author_id_and_receiver_id", unique: true, using: :btree
+    t.index ["author_id"], name: "index_conversations_on_author_id", using: :btree
+    t.index ["receiver_id"], name: "index_conversations_on_receiver_id", using: :btree
+  end
+
+  create_table "personal_messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "body",            limit: 65535
+    t.integer  "conversation_id"
+    t.integer  "user_id"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.index ["conversation_id"], name: "index_personal_messages_on_conversation_id", using: :btree
+    t.index ["user_id"], name: "index_personal_messages_on_user_id", using: :btree
   end
 
   create_table "posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -85,5 +105,7 @@ ActiveRecord::Schema.define(version: 20170514085632) do
   end
 
   add_foreign_key "answers", "users"
+  add_foreign_key "personal_messages", "conversations"
+  add_foreign_key "personal_messages", "users"
   add_foreign_key "posts", "users"
 end
