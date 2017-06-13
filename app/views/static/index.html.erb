@@ -4,17 +4,4 @@
 <% if !user_signed_in? %>
 		<%= render "devise/sessions/form" %>
 		<%= render "static/whatwedo" %>
-<% else %>
-		<div class="well">
- 				<ul>
-						<% @posts.each do |post| %>
-								<li>Title: <%= post.title %> <br/> </li>
-								<li>Body: <%= raw(post.body) %></li>
-								<li>User Email: <%= post.email %> <br/></li>
-								<%= link_to "read",post,class: "btn btn-warning"%>
-								<br/>
-								<br/>
-				</ul>
-						<% end %>
-<% end %>						
-		</div>
+<% end %>

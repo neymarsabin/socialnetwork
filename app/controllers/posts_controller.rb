@@ -2,6 +2,10 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_post, only: [:show,:destroy,:update,:edit,:upvote,:downvote]
 
+  def index
+    @posts = Post.all
+  end
+  
   def new
     @post = Post.new
   end
