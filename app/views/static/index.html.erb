@@ -6,6 +6,7 @@
 		<%= render "devise/sessions/form" %>
 		<%= render "static/whatwedo" %>
 <% else %>
+<div class="container">
 		<div class="well">
  				<ul>
 						<% @posts.each do |post| %>
@@ -19,3 +20,4 @@
 						<% end %>
 <% end %>						
 		</div>
+</div>
