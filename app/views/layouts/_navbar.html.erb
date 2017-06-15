@@ -7,9 +7,9 @@
         <span class="icon-bar"></span>
       </button>
 		
-
-				<div class="collapse navbar-collapse " id="navbarSupportedContent">
-				<ul class="navbar-nav nav pull-sm-right"  ">
+      			
+				<div class="collapse navbar-collapse " id="navbarSupportedContent"  style="background:lightblue; ">
+				<ul class="navbar-nav nav pull-sm-right" >
 						<% if user_signed_in? %>
 								<li class="nav-item">
 										<%= link_to "write new post",new_post_path, class: "nav-link"%>
@@ -39,5 +39,6 @@
 								</li>
 						<% end %>
 				</ul>
+		
 		</div>
 </nav>
