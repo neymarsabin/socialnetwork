@@ -3,11 +3,11 @@
 
 <h1>Questions</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Title</th>
-      <th>Body</th>
+      <!-- <th>Body</th> -->
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,10 +16,10 @@
     <% @questions.each do |question| %>
       <tr>
         <td><%= question.title %></td>
-        <td><%= question.body %></td>
-        <td><%= link_to 'Show', question %></td>
-        <td><%= link_to 'Edit', edit_question_path(question) %></td>
-        <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%#= question.body %></td>
+        <td><%= link_to 'Show', question,class: "btn btn-primary" %></td>
+        <td><%= link_to 'Edit', edit_question_path(question),class: "btn btn-primary" %></td>
+        <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>

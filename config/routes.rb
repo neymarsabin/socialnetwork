@@ -4,11 +4,11 @@ Rails.application.routes.draw do
   end
 
   devise_for :users
-  root 'static#index'
+  root 'posts#index'
   get 'about',to: 'static#about'
   get 'contact',to: 'static#contact'
-  get 'profile/:id',to: 'static#profile'
-  resources :posts, only: [:new,:create,:show,:destroy,:update,:edit] do
+  get 'profile',to: 'static#profile'
+  resources :posts, only: [:new,:create,:show,:destroy,:update,:edit,:index] do
     resources :comments, except: [:show,:index]
     member do
       put "like" => "posts#upvote"
@@ -19,6 +19,6 @@ Rails.application.routes.draw do
   root 'conversations#index'
   resources :personal_messages, only: [:create,:new]
   resources :conversations, only: [:index,:show]
-  resources :users,only: [:index]
+  resources :users,only: [:index,:show]
   
 end

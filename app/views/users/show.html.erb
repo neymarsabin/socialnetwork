@@ -1,0 +1,11 @@
+<h1><%= @user.email %></h1>
+<p><%= @user.id %></p>
+<p><%= @user.created_at %></p>
+<p><%= @user.updated_at %></p>
+<p><% @posts.each do |post| %></p>
+		<%= post.title %> <br/>
+		<%= post.body.html_safe %>
+<% end %>
+
+<span class="spacing">XX Followers</span>
+<span class="spacing">XX Following</span>

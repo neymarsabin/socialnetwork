@@ -20,10 +20,14 @@ gem 'devise'
 gem 'simple_form'
 gem 'acts_as_votable'
 gem 'trix'
+gem 'redis'
+gem 'wysiwyg-rails'
 
 
 group :development, :test do
   gem 'byebug', platform: :mri
+  gem 'better_errors'
+  gem "binding_of_caller"
 end
 
 group :development do
