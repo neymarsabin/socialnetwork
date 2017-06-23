@@ -7,27 +7,30 @@
 		<%= render "static/whatwedo" %>
 
 <% else %>
-<div class="container">
-<div class="row">
-<!-- <div class="col-sm-2"></div> -->
+<!-- <div class="container">
+<div class="row"> -->
+<!-- <div class="col-sm-2"></div> --> 
 	<!-- <div class="well">  -->
  				<!-- <ul> -->
-						<% @posts.each do |post| %><div class="col-sm-6" style="background: lightgrey;padding:1;">	
+						<% @posts.each do |post| %>
+						<!-- <div class="col-sm-6" style="background: lightgrey;">	
+								<div class="card" style="width: 20rem;">
+								<div class="card-block"> -->
 								<li>Title: <%= post.title %> <br/> </li>
 								<li>Body: <%= post.body.html_safe %></li>
-								<li>User Email: <%= post.email %> <br/></li>
-								<%= link_to "read",post,class: "btn btn-success"%>
+								<!-- <li>User Email: <%= post.email %> <br/></li> -->
+								<%= link_to "read",post,class: "btn btn-warning"%>
 								<br/>
 								<br>
 								
-								<br/></div><br>
+								<br/><!-- </div></div> --><br>
 				<!-- </ul> --> 
 				
 						<% end %>
 
 <!-- </div> -->	</div>	
 	
-<% end %>			</div> 		
+<% end %>			<!-- </div> 		 -->
 		
 
 <% end %>
