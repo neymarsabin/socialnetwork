@@ -4,7 +4,7 @@
 				<p class="comment"><%= comment.body %></p>
 				<% if comment.user_id == current_user.id %>
 						<small><%= link_to "delete", post_comment_path(comment.id), method: :delete %></small>
-						<small><%= link_to "edit",edit_post_comment_path(comment.id)%></small>
+						<small><%= link_to "edit",edit_post_comment_path(@post,comment)%></small>
 				<% end %>
 		</div>
 <% end %>
