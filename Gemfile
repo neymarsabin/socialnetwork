@@ -22,6 +22,7 @@ gem 'acts_as_votable'
 gem 'trix'
 gem 'redis'
 gem 'wysiwyg-rails'
+gem 'activeadmin', github: 'activeadmin'
 
 
 group :development, :test do
