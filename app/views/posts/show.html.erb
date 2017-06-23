@@ -1,8 +1,9 @@
+<div style="padding-left: 15px;">
 <h1><%= @post.title %></h1>
 <p><%= @post.body.html_safe %></p>
 <% if current_user == @post.user %>
-		<%= link_to "edit", edit_post_path,  class: "btn btn-primary"%>
-		<%= link_to "delete post",post_path,method: :delete,class: "btn btn-primary"%>
+		<%= link_to "edit", edit_post_path,  class: "btn btn-success"%>
+		<%= link_to "delete post",post_path,method: :delete,class: "btn btn-success"%>
 <% end %>		
 
 <%= link_to "like" , like_post_path(@post), class: "like", method: :put %>
@@ -15,3 +16,4 @@
 <h1>here are some comments</h1>
 <%= render partial: "comments/comments" %>
 <%= render partial: "comments/comment_form" %>
+</div>

@@ -1,15 +1,14 @@
-<nav class="navbar navbar-toggleable-md  ">
-		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
 
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-		
+  <nav class="navbar  navbar-toggleable-md navbar-light bg-faded navbar-right">
+ 
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ <!--  <a class="navbar-brand" href="#"> .. </a> -->
+
       			
-				<div class="collapse navbar-collapse " id="navbarSupportedContent"  style="background:lightblue; ">
-				<ul class="navbar-nav nav pull-sm-right" >
+				<div class="navbar navbar-inverse collapse navbar-collapse " id="navbarSupportedContent"  style="background:rgb(100,100,100); ">
+				<ul class="navbar-nav" >
 						<% if user_signed_in? %>
 								<li class="nav-item">
 										<%= link_to "write new post",new_post_path, class: "nav-link"%>
