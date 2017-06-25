@@ -15,3 +15,7 @@
 
 <h1>Your images </h1>
 <%= image_tag current_user.user_image.url(:medium),alt: "something is wrong" %>
+
+<h1>Current stat</h1>
+Followers:: <%= @followers.size %>
+Following:: <%= @following.size %>

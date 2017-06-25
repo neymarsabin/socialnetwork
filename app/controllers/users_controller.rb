@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   def my_friends
     @friendships = current_user.friends
+    @friendships_inverse = current_user.inverse_friends
   end
 
   def add_friends

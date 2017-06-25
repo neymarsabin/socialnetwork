@@ -13,5 +13,7 @@ class StaticController < ApplicationController
   def profile
     @posts = current_user.posts.all
     @questions = current_user.questions.all
+    @following = current_user.friends
+    @followers = current_user.inverse_friends
   end
 end

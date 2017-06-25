@@ -30,7 +30,8 @@ class User < ApplicationRecord
 
   has_many :friendships
   has_many :friends, through: :friendships
-
+  has_many :inverse_friendships, class_name: "Friendship",foreign_key: "friend_id"
+  has_many :inverse_friends,through: :inverse_friendships, source: :user
 
   def not_friends_with?(friend_id)
     friendships.where(friend_id: friend_id).count < 1
