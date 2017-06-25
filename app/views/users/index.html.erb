@@ -5,6 +5,9 @@
 		<%= text_field_tag :search, params[:search] %>
 		<%= submit_tag "Search"%>
 <% end %>
-
-<ul><%= render @users %></ul>
+<% if @users.size > 0 %>
+		<ul><%= render @users %></ul>
+<% else %>
+		<p>You have not any friends of that match.</p>
+<% end %>
 </div>

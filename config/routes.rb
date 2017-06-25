@@ -22,5 +22,10 @@ Rails.application.routes.draw do
   resources :personal_messages, only: [:create,:new]
   resources :conversations, only: [:index,:show]
   resources :users,only: [:index,:show]
+  resources :friendships
+  
+
+  get 'my_friends',to: "users#my_friends"
+  post 'add_friends',to: "users#add_friends"
   
 end

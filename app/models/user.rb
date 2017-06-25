@@ -28,5 +28,16 @@ class User < ApplicationRecord
   has_attached_file :user_image, :styles => {medium: "300*300>", large: "600*600>", thumbnail: "200*250#"}
   validates_attachment_content_type :user_image, content_type: /\Aimage\/.*\z/
 
+  has_many :friendships
+  has_many :friends, through: :friendships
+
+
+  def not_friends_with?(friend_id)
+    friendships.where(friend_id: friend_id).count < 1
+  end
+
+  def except_current_user(users)
+    users.reject { |user| user.id == self.id }
+  end
   
 end

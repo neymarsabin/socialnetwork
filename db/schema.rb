@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170625022853) do
+ActiveRecord::Schema.define(version: 20170625050205) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "namespace"
@@ -72,6 +72,15 @@ ActiveRecord::Schema.define(version: 20170625022853) do
     t.index ["author_id", "receiver_id"], name: "index_conversations_on_author_id_and_receiver_id", unique: true, using: :btree
     t.index ["author_id"], name: "index_conversations_on_author_id", using: :btree
     t.index ["receiver_id"], name: "index_conversations_on_receiver_id", using: :btree
+  end
+
+  create_table "friendships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.integer  "friend_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["friend_id"], name: "index_friendships_on_friend_id", using: :btree
+    t.index ["user_id"], name: "index_friendships_on_user_id", using: :btree
   end
 
   create_table "personal_messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
