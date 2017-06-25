@@ -84,3 +84,26 @@
 	#+BEGIN_QUOTE
 	Follow these and we all be together in the project.
 	#+END_QUOTE
+
+* Short information on recaptcha 
+	- Recaptcha requires API key from google: 
+		
+		#+BEGIN_QUOTE
+
+		#+END_QUOTE
+
+	- To use recaptcha, create a file called .env in your root folder of project: 
+		#+BEGIN_SRC bash 
+		touch .env 
+		#+END_SRC
+
+	- Insert the API keys from google in the .env file: 
+		#+BEGIN_EXAMPLE
+		RECAPTCHA_SITE_KEY=<recaptcha_site_key_from_google> 
+		RECAPTCHA_SECRET_KEY=<recaptcha_secrete_key_from_google> 
+		#+END_EXAMPLE
+		
+
+
+
+		

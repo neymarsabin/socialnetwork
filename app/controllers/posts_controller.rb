@@ -12,8 +12,11 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.new(post_params)
-    @post.save
-    redirect_to root_path
+    if verify_recaptcha(model: @post) && @post.save
+      redirect_to root_path
+    else
+      redirect_to :back
+    end
   end
 
   def show

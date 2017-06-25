@@ -25,6 +25,8 @@ gem 'wysiwyg-rails'
 gem 'activeadmin', github: 'activeadmin'
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 gem "friendly_id"
+gem "recaptcha", require: "recaptcha/rails"
+gem "dotenv-rails", require: 'dotenv/rails-now'
 
 
 group :development, :test do
