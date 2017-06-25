@@ -24,6 +24,8 @@ gem 'redis'
 gem 'wysiwyg-rails'
 gem 'activeadmin', github: 'activeadmin'
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
+gem "friendly_id"
+
 
 group :development, :test do
   gem 'byebug', platform: :mri
