@@ -1,12 +1,9 @@
 ActiveAdmin.register AdminUser do
   permit_params :email, :password, :password_confirmation
 
-  ActiveAdmin.setup do |config|
-    config.comments = false
-    config.footer = "My Social Network Application"
-    config.site_title       = "Social Network For Developers"
-    config.site_title_link  = "/"
-  end
+   ActiveAdmin.setup do |config|
+     config.comments = false
+   end
 
   
   index do

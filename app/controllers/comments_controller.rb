@@ -11,5 +11,16 @@ class CommentsController < ApplicationController
       flash[:notice] = "Comment was not saved!!!"
       redirect_to post_path(@post)
     end
-  end 
+  end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+    @post = Post.find(params[:post_id])
+    if @comment.destroy
+      flash[:notice] = "Comment sucessfully deleted!!"
+      redirect_to post_path(@post)
+    else
+      flash[:notice] = "Cannot delete comment"
+    end
+  end
 end

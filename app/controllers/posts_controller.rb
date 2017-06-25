@@ -46,6 +46,10 @@ class PostsController < ApplicationController
     end
   end
 
+  def upload_image
+    render :josn => FroalaEditorSDK::Image.upload(params)
+  end
+  
   def upvote
     @post.upvote_from current_user
     redirect_to :back

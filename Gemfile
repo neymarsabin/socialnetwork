@@ -29,6 +29,8 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'better_errors'
   gem "binding_of_caller"
+  gem 'rails-erd'
+  gem 'railroady'
 end
 
 group :development do
