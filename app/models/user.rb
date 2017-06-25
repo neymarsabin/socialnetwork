@@ -23,5 +23,10 @@ class User < ApplicationRecord
       all
     end
   end
+
+  # for image upload feature
+  has_attached_file :user_image, :styles => {medium: "300*300>", large: "600*600>", thumbnail: "200*250#"}
+  validates_attachment_content_type :user_image, content_type: /\Aimage\/.*\z/
+
   
 end

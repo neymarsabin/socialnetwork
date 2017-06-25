@@ -11,4 +11,9 @@
 		<%= question.id %> <br/>
 		<%= question.body %> <br/></div>
 <% end %>
+
+
+<h1>Your images </h1>
+<%= image_tag current_user.user_image.url(:medium),alt: "something is wrong" %>
+
 </div>

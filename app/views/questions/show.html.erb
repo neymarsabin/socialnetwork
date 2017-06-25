@@ -5,10 +5,10 @@
 		<%= @question.title %>
 </p>
 
-  <strong>Body:</strong>
-  <%= @question.body %>
-	<br/>
-<small>There are three answers::: </small><%= @question.answers.count %> <br/>
+<strong>Body:</strong>
+<%= @question.body %>
+<br/>
+<h4><%= @question.answers.count %> answers </h4>
 <%= render @question.answers %>
 <h3>Reply to thread </h3>
 		<%= render "answers/form" %>

@@ -41,15 +41,19 @@ class QuestionsController < ApplicationController
   # PATCH/PUT /questions/1
   # PATCH/PUT /questions/1.json
   def update
-    @question = current_user.questions.build(question_params)
-    respond_to do |format|
-      if @question.update(question_params)
-        format.html { redirect_to @question, notice: 'Question was successfully updated.' }
-        format.json { render :show, status: :ok, location: @question }
-      else
-        format.html { render :edit }
-        format.json { render json: @question.errors, status: :unprocessable_entity }
-      end
+    if current_user == @question.user
+      @question.update(question_params)
+      @question.save
+      flash[:notice] = "Edit sucessful: #{@question.title}"
+      redirect_to @question
+    # respond_to do |format|
+    #   if @question.update(question_params)
+    #     format.html { redirect_to @question, notice: 'Question was successfully updated.' }
+    #     format.json { render :show, status: :ok, location: @question }
+    #   else
+    #     format.html { render :edit }
+    #     format.json { render json: @question.errors, status: :unprocessable_entity }
+    #   end
     end
   end
 
@@ -69,7 +73,7 @@ class QuestionsController < ApplicationController
       @question = Question.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    # white listing params
     def question_params
       params.require(:question).permit(:title, :body)
     end
