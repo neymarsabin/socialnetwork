@@ -13,5 +13,7 @@ class Post < ActiveRecord::Base
   def to_param
     "#{id} #{title}".parameterize
   end
+
+  acts_as_taggable
   
 end

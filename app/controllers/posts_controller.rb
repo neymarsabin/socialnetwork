@@ -4,7 +4,8 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
-    render json: @posts
+
+    # =>     render json: @posts
   end
   
   def new
@@ -17,7 +18,7 @@ class PostsController < ApplicationController
       flash[:notice] = "sucessfuly created post"
       redirect_to root_path
     else
-      flash[:notice] = "Post creation error."
+      flash[:notice] = "Invalid captcha please submit the form again."
       redirect_to :back
     end
   end
@@ -73,6 +74,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title,:body)
+    params.require(:post).permit(:title,:body,:tag_list)
   end
 end

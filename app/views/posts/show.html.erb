@@ -1,10 +1,11 @@
 <div style="padding-left: 15px;">
-<h1><%= @post.title %></h1>
-<p><%= @post.body.html_safe %></p>
-<% if current_user == @post.user %>
+		<h1><%= @post.title %></h1>
+		<p><%= @post.body.html_safe %></p>
+		Number of tags: <%= @tag_count %> <br/>
+		<% if current_user == @post.user %>
 		<%= link_to "edit", edit_post_path,  class: "btn btn-success"%>
 		<%= link_to "delete post",post_path,method: :delete,class: "btn btn-success"%>
-<% end %>		
+<% end %>		 <br/>
 
 <%= link_to "like" , like_post_path(@post), class: "like", method: :put %>
 <%= @post.get_upvotes.size %>
