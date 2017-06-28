@@ -4,6 +4,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+    render json: @posts
   end
   
   def new
@@ -13,8 +14,10 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.new(post_params)
     if verify_recaptcha(model: @post) && @post.save
+      flash[:notice] = "sucessfuly created post"
       redirect_to root_path
     else
+      flash[:notice] = "Post creation error."
       redirect_to :back
     end
   end
