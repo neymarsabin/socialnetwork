@@ -1,6 +1,8 @@
 <div style="padding-left: 15px;">
 		<h1><%= @post.title %></h1>
-		<p><%= @post.body.html_safe %></p>
+		<div class="froala-view">
+				<%= simple_format(@post.body) %>
+		</div>
 		Number of tags: <%= @tag_count %> <br/>
 		<% if current_user == @post.user %>
 		<%= link_to "edit", edit_post_path,  class: "btn btn-success"%>
