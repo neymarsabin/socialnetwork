@@ -1,0 +1,5 @@
+<% if activity.trackable  %>
+		created a comment <%= link_to activity.trackable.post_id, activity.trackable.post_id %>
+<% else %>
+		which has since been removed.
+<% end %>

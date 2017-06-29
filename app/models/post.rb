@@ -1,4 +1,8 @@
 class Post < ActiveRecord::Base
+  include PublicActivity::Model
+  tracked owner: ->(controller,model ) { controller && controller.current_user },
+          title: ->(controller, model ) { controller && model.title }
+
   validates :title,:body, presence: true
   belongs_to :user
   delegate :email, to: :user

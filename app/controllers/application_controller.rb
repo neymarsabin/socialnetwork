@@ -1,4 +1,7 @@
 class ApplicationController < ActionController::Base
+  include PublicActivity::StoreController 
+
+
   protect_from_forgery with: :exception
   before_action :configure_permitted_paramaters, if: :devise_controller?
   # rescue_from ActiveRecord::RecordNotFound, :with => :render_404
