@@ -16,4 +16,6 @@ class StaticController < ApplicationController
     @following = current_user.friends
     @followers = current_user.inverse_friends
   end
+  def settings
+  end
 end

@@ -4,6 +4,7 @@ class CommentsController < ApplicationController
     @comment = @post.comments.new(params[:comment].permit(:body))
     @comment.user_id = current_user.id
     if @comment.save
+      @comment.create_activity :create,owner: current_user
       redirect_to post_path(@post)
     else
       flash[:notice] = "Comment was not saved!!!"

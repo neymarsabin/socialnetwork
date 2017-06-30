@@ -4,8 +4,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
-
-    # =>     render json: @posts
+    render formats: [ :html, :json]
   end
   
   def new

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'about',to: 'static#about'
   get 'contact',to: 'static#contact'
   get 'profile',to: 'static#profile'
+  get 'settings', to: 'static#settings'
   resources :posts, only: [:new,:create,:show,:destroy,:update,:edit,:index] do
     resources :comments, except: [:show,:index]
     member do

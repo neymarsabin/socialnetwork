@@ -33,10 +33,11 @@
 
 	<div class="field">
 			<%= f.label :profile_image %>
-			<%= f.file_field :user_image %>
+			<%= f.file_field :user_image,class: "form-control",autocomplete: "on" %>
 	</div>
+	
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "Update",class: "btn btn-info" %>
   </div>
 <% end %>
 </div>
