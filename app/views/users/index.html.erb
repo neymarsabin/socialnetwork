@@ -1,13 +1,13 @@
 <div style="padding-left: 15px;"  >
-<h1>Users</h1>
-<h1>Seach for users:</h1>
-<%= form_tag users_path, :method => :get do %>
-		<%= text_field_tag :search, params[:search] %>
-		<%= submit_tag "Search"%>
-<% end %>
-<% if @users.size > 0 %>
-		<ul><%= render @users %></ul>
-<% else %>
-		<p>You have not any friends of that match.</p>
-<% end %>
+		<div class="form">
+				<%= form_tag users_path, :method => :get do %>
+						<%= text_field_tag :search, params[:search], class: "form-control" %>
+						<%= submit_tag "Search" , class: "btn btn-secondary"%>
+				<% end %>
+				<% if @users.size > 0 %>
+						<ul><%= render @users %></ul>
+				<% else %>
+						<p>You have not any friends of that match.</p>
+				<% end %>
+		</div>
 </div>
