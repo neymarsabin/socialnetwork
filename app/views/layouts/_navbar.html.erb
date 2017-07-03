@@ -8,8 +8,12 @@
 
       			
 				<div class="navbar navbar-inverse collapse navbar-collapse " id="navbarSupportedContent"  style="background:rgb(100,100,100); ">
-				<ul class="navbar-nav" >
+				<ul class="navbar-nav " >
 						<% if user_signed_in? %>
+								<!-- <li class="nav-item" "> <span class="badge badge-default">Social Network</span></h2></li> -->
+								<!-- <li class="nav-item ">
+									<%= image_tag("sociall.png")%> 
+								</li> -->
 								<li class="nav-item">
 										<%= link_to "write new post",new_post_path, class: "nav-link"%>
 								</li>
@@ -35,7 +39,10 @@
 										<%= link_to "recommendations",about_path, class: "nav-link" %>									
 								</li>
 						<% else %>
-								<li class="nav-item " id="navi" >
+						<li class="nav-item ">
+									<%= image_tag("sociall.png")%> &nbsp&nbsp&nbsp
+								</li>
+								<li class="button" id="navi" >
 								<span >
 										<%= link_to "Sign up",new_user_registration_path, class: "nav-link"%>
 								</li>
@@ -45,6 +52,7 @@
 								<li class="nav-item">
 										<%= link_to "Contact",contact_path, class: "nav-link"%>
 								</li>
+
 						<% end %>
 				</ul>
 		

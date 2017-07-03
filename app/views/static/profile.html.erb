@@ -1,15 +1,15 @@
-<div style="padding-left: 15px"><h1>Your posts</h1>
-<% @posts.each do |post| %><div class="card" style="padding-left: 10px;">
-		<%= post.id %> <br/>
-		<%= post.body.html_safe %> <br/></div>
+<div class="container" ><h1 style="text-align: center">Your posts</h1>
+<% @posts.each do |post| %><div class="card text-center">
+		<div class=card-title><%= post.id %> <br/></div>
+		<div class=card-text><%= post.body.html_safe %> <br/></div></div>
 <% end %>
 
 
 <h1>Your questions</h1>
 
-<% @questions.each do |question| %><div class="card" ">
-		<%= question.id %> <br/>
-		<%= question.body %> <br/></div>
+<% @questions.each do |question| %><div class="card text-center" >
+				<div class=card-title><%= question.id %> <br/></div>
+		<div class=card-text><%= question.body %> <br/></div></div>
 <% end %>
 
 
