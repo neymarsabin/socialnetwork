@@ -1,3 +1,8 @@
+<h1>Your images </h1>
+<%= image_tag current_user.user_image.url(:medium),alt: "something is wrong" %>
+
+
+
 <div style="padding-left: 15px"><h1>Your posts</h1>
 <% @posts.each do |post| %><div class="card" style="padding-left: 10px;">
 		<%= post.id %> <br/>
@@ -13,8 +18,6 @@
 <% end %>
 </div>
 
-<h1>Your images </h1>
-<%= image_tag current_user.user_image.url(:medium),alt: "something is wrong" %>
 
 <h1>Current stat</h1>
 Followers:: <%= @followers.size %>

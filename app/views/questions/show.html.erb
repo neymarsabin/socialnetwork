@@ -1,12 +1,11 @@
 <div style="padding-left: 15px;"><p id="notice"><%= notice %></p>
 
-<p>
 		<strong>Title:</strong>
-		<%= @question.title %>
-</p>
-
+		<%= @question.title %> <br/>
 <strong>Body:</strong>
-<%= @question.body %>
+<%= @question.body %> <br/>
+<strong>posted by:</strong>
+<%= @question.user.email %>
 <br/>
 <h4><%= @question.answers.count %> answers </h4>
 <%= render @question.answers %>
