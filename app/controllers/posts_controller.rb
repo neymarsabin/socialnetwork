@@ -35,7 +35,7 @@ class PostsController < ApplicationController
     if current_user == @post.user
       @post.update(post_params)
       @post.save
-      flash[:notice] == "Edit successfull: #{@post.title} "
+      flash[:notice] == "Edit successfull: "
       redirect_to @post
     end
   end
@@ -44,16 +44,13 @@ class PostsController < ApplicationController
   def destroy
     if current_user == @post.user
       @post.destroy
-      flash[:notice] = "Sucessfully deleted the post: #{@post.title}"
-      redirect_to root_path
-    else
-      flash[:notice] = "You are not authorized to delete this post"
-      redirect_to post_path
+      flash[:notice] = "Sucessfully deleted the post:"
+      redirect_to posts_path
     end
   end
 
   def upload_image
-    render :josn => FroalaEditorSDK::Image.upload(params)
+    render :json => FroalaEditorSDK::Image.upload(params)
   end
   
   def upvote

@@ -1,5 +1,6 @@
 <div style="padding-left: 15px">
-<p id="notice"><%= notice %></p>
+		<%= flash[:alert] %>
+		<p id="notice"><%= notice %></p>
 
 <h1>Questions</h1>
 
@@ -17,9 +18,13 @@
       <tr>
         <td><%= question.title %></td>
         <td><%#= question.body %></td>
-        <td><%= link_to 'Show', question,class: "btn btn-primary" %></td>
-        <td><%= link_to 'Edit', edit_question_path(question),class: "btn btn-primary" %></td>
-        <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-danger" %></td>
+				<td><%= link_to 'Show', question,class: "btn btn-primary" %></td>
+				<% if can? :update, question%>
+						<td><%= link_to 'Edit', edit_question_path(question),class: "btn btn-primary" %></td>
+				<% end %>
+				<% if can? :destroy, question%>
+						<td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-danger" %></td>
+				<% end %>
       </tr>
     <% end %>
   </tbody>

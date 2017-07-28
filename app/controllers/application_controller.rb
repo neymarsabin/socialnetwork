@@ -1,11 +1,16 @@
 class ApplicationController < ActionController::Base
+  include Pundit
   include PublicActivity::StoreController 
 
 
   protect_from_forgery with: :exception
   before_action :configure_permitted_paramaters, if: :devise_controller?
-  # rescue_from ActiveRecord::RecordNotFound, :with => :render_404
-  
+  #rescue_from ActiveRecord::RecordNotFound, :with => {:render => "404"}
+
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to question_path, :alert => exception.message
+  end
+   
   def get_current_user_email
     current_user.email
   end

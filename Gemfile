@@ -29,7 +29,8 @@ gem "recaptcha", require: "recaptcha/rails"
 gem "dotenv-rails", require: 'dotenv/rails-now'
 gem 'acts-as-taggable-on', '~> 4.0'
 gem 'public_activity'
-
+gem 'pundit'
+gem 'cancan'
 
 group :development, :test do
   gem 'byebug', platform: :mri
