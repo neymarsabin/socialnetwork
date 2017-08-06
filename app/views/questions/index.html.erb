@@ -1,15 +1,18 @@
-<div style="padding-left: 15px">
+<div >
 		<%= flash[:alert] %>
 		<p id="notice"><%= notice %></p>
 
-<h1>Questions</h1>
+<h2 class="header">Welcome to the forum!</h2>
+<div class=header>Before asking new Questions, please have a look at the following question!<br />
+Or, you can always ask a new one! <%= link_to 'New Question', new_question_path %></div>
+<hr />
 
 <table class="table">
   <thead>
     <tr>
       <th>Title</th>
       <!-- <th>Body</th> -->
-      <th colspan="3"></th>
+      <th colspan="1"></th>
     </tr>
   </thead>
 
@@ -18,12 +21,14 @@
       <tr>
         <td><%= question.title %></td>
         <td><%#= question.body %></td>
-				<td><%= link_to 'Show', question,class: "btn btn-primary" %></td>
+        
+				<td class="forumo"><%= link_to 'View', question,class: "btn btn-primary" %>
 				<% if can? :update, question%>
-						<td><%= link_to 'Edit', edit_question_path(question),class: "btn btn-primary" %></td>
+						<%= link_to 'Edit', edit_question_path(question),class: "btn btn-primary" %>
 				<% end %>
 				<% if can? :destroy, question%>
-						<td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-danger" %></td>
+						<%= link_to 'Delete', question, method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-danger" %></td>
+            
 				<% end %>
       </tr>
     <% end %>
@@ -32,5 +37,5 @@
 
 <br>
 
-<%= link_to 'New Question', new_question_path %>
+
 </div>

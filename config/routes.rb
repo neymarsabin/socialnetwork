@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :answers
   end
 
+  
   devise_for :users
   root 'posts#index'
   get 'about',to: 'static#about'

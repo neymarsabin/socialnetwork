@@ -19,11 +19,8 @@
 
 				<div class="field">
 						<%= f.label :body %>
-						<%= md_simple_editor do %>
-								<%= f.text_area :body,class: "form-control question-body-form" %>
-						<% end %>
+						<%= f.text_area :body,class: "form-control" %>
 				</div>
-				
 
 				<div class="actions">
 						<%= f.submit "ask question?",class: "btn btn-primary"%>

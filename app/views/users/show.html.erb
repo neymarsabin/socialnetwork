@@ -6,16 +6,11 @@
 <div class="container row">
 <% @posts.each do |post| %>
 
-<div class="col-sm-4 card" style="padding:10px">
+<div class="col-sm-4 card">
 		<%= post.title %> <br/>
 		<%= post.body.html_safe %></div>
 <% end %></div>
 
 <span class="spacing">XX Followers</span>
 <span class="spacing">XX Following</span>
-</div>
-
-
-<div class="recommended">
-		<%= @matrix %>
 </div>
