@@ -1,4 +1,5 @@
-<div class="card">
+
+<div class="chat">
 		Chatting with <%= conversation.with(current_user).email %>
 		<br>
 		<em><%= conversation.personal_messages.last.body.truncate(50) %></em>
