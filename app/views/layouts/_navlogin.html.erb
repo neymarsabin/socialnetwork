@@ -1,5 +1,10 @@
 <% if !user_signed_in? %>
+
 <ul class="navbar-nav justify-content-end" >
+		<li class="nav-item">
+				<%= link_to "DevStory",root_path, class: "nav-link"%>
+		</li>
+
 		<li class="nav-item" >
 				<%= link_to "Sign up",new_user_registration_path, class: "nav-link"%>
 		</li>
@@ -7,11 +12,14 @@
 				<%= link_to "Log In", new_user_session_path, class: "nav-link"%>
 		</li>
 		<li class="nav-item">
-				<%#= link_to "About",about_path, class: "nav-link"%>
+			 <%= link_to "About",about_path, class: "nav-link"%>
+		
 		</li>
 		<li class="nav-item">
-				<%#= link_to "Contact",contact_path, class: "nav-link"%>
+				<%= link_to "Contact",contact_path, class: "nav-link"%>
 		</li>
 
 </ul>
 <% end %>
+
+

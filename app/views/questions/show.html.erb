@@ -1,23 +1,13 @@
-<div style="padding-left: 15px;"><p id="notice"><%= notice %></p>
-
-		<strong>Title:</strong>
-		<%= @question.title %> <br/>
-		<strong>Body:</strong>
-		<div class="md-preview">
-				<%= @question.body %> <br/>
-		</div>
-		<strong>posted by:</strong>
-<%= @question.user.email %>
-<br/>
-<h4><%= @question.answers.count %> answers </h4>
-<%= render @question.answers %>
-<h3>Reply to thread </h3>
-		<%= render "answers/form" %>
+<div class="displayq">
+<strong>Title:</strong><%= @question.title %> <br/>
+<strong>Description:</strong><%= @question.body %> <br/>
+<strong>Posted by:</strong><%= @question.user.email %>
+<hr />
+<h4><%= @question.answers.count %> Answers <%= render @question.answers %> | Reply to thread </h4><%= render "answers/form" %>
 <br/>
 
 <% if can? :update , @question%>
-		<%= link_to 'Edit', edit_question_path(@question) %>
+		<%= link_to 'Edit', edit_question_path(@question), class: "btn btn-primary" %>
 <% end %>
-		|
-<%= link_to 'Back', questions_path %>
+<%= link_to 'Back', questions_path, class: "btn btn-danger" %>
 </div>

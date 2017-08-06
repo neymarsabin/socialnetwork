@@ -1,3 +1,5 @@
+
+
 @import "froala_style.min.css";
 @import "froala_editor.min.css";
 @import "font-awesome-sprockets";
@@ -19,11 +21,33 @@
 @import "trix";
 @import "bootstrap";
 @import "navbar";
-@import "md_simple_editor";
+
+$footer-header-height: 102px;
+$footer-body-height: 50px;
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+.navbar-brand {
+  padding: 0px;
+}
+.navbar-brand>img {
+  height: 100%;
+  padding: 15px;
+  width: auto;
+}
+
+
+.header {
+  text-align: center;
+  }
+
 
 body {
 		background-color: white;
-}
+		}
 
 #conversation-body {
   max-height: 400px;
@@ -38,7 +62,14 @@ body {
 
 .nav-link {
 		color: green;
+
 }
+.newq{
+  max-width: 750px;
+  margin: 0px auto;
+
+}
+
 
 .answer-section {
 		padding: 20px;
@@ -50,6 +81,47 @@ body {
 		color: red;
 }
 
-.question-body-form {
-		height: 200px;
+.footerholder {
+    background: none repeat scroll 0 0 transparent;
+    padding: 60px;
+    position: relative;
+    text-align: center;
+    width: 100%;
 }
+
+.footer {
+ul {
+	list-style: none;
+    padding-left: 0;
+    li {
+      display: inline;
+      margin-right: 1em;
+      }
+  }
+    background: none repeat scroll 0 0 white;
+    height: 100px;
+    margin: auto;
+    width: 500px;
+}
+
+.pathalloc
+{
+ max-width: 750px; 
+margin:0 auto;
+
+}
+
+.displayq{
+  max-width: 800px;
+  margin:0 auto;
+}
+
+.table{
+  width: 800px;
+  margin:0 auto;
+}
+
+.forumo{
+  position: absolute;
+  right: 160px;
+  }
