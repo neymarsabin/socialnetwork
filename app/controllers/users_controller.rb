@@ -21,5 +21,5 @@ class UsersController < ApplicationController
       redirect_to my_friends_path, flash[:error] = "There was an error with adding user as friend"
     end
   end
-  
+
 end

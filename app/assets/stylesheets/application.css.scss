@@ -19,6 +19,7 @@
 @import "trix";
 @import "bootstrap";
 @import "navbar";
+@import "md_simple_editor";
 
 body {
 		background-color: white;
@@ -47,4 +48,8 @@ body {
 
 #answer-body {
 		color: red;
+}
+
+.question-body-form {
+		height: 200px;
 }

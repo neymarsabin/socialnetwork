@@ -31,6 +31,7 @@ gem 'acts-as-taggable-on', '~> 4.0'
 gem 'public_activity'
 gem 'pundit'
 gem 'cancan'
+gem 'md_simple_editor'
 
 group :development, :test do
   gem 'byebug', platform: :mri

@@ -2,9 +2,11 @@
 
 		<strong>Title:</strong>
 		<%= @question.title %> <br/>
-<strong>Body:</strong>
-<%= @question.body %> <br/>
-<strong>posted by:</strong>
+		<strong>Body:</strong>
+		<div class="md-preview">
+				<%= @question.body %> <br/>
+		</div>
+		<strong>posted by:</strong>
 <%= @question.user.email %>
 <br/>
 <h4><%= @question.answers.count %> answers </h4>

@@ -27,6 +27,7 @@ class PostsController < ApplicationController
     @comment = Comment.new
     @comment.post_id = @post.id
     @comment.user_id = current_user.id
+    @tag_count = @post.tag_list.size
   end 
 
   def edit
@@ -62,6 +63,7 @@ class PostsController < ApplicationController
     @post.downvote_from current_user
     redirect_to :back
   end
+
 
   private
 
