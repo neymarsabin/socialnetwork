@@ -37,6 +37,7 @@ gem 'public_activity'
 gem 'pundit'
 gem 'cancan'
 gem 'md_simple_editor'
+gem 'ruby-tf-idf'
 
 group :development, :test do
   gem 'byebug', platform: :mri
