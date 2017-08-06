@@ -1,16 +1,29 @@
-<h1>Your images </h1>
+<center><h1><%= current_user.email =%>'s Profile<br>
+
+</h1>
+<a href="users/edit">Edit</a> |
+<a href="users/edit">Settings</a> |
+<a href="friend">Friends</a> |
+<a href="conversations">Message</a> 
+
+
+</center>
+<hr />
+
+<div class="profile">
 <%= image_tag current_user.user_image.url(:medium),alt: "something is wrong" %>
 
-
-
-<div style="padding-left: 15px"><h1>Your posts</h1>
+Followers:: <%= @followers.size %>
+Following:: <%= @following.size %>
+<br>
+<div style="padding-left: 15px"><h4>Posts</h4><hr/>
 <% @posts.each do |post| %><div class="card" style="padding-left: 10px;">
 		<%= post.id %> <br/>
 		<%= post.body.html_safe %> <br/></div>
 <% end %>
 
 
-<h1>Your questions</h1>
+<h4>Questions</h4><hr/>
 
 <% @questions.each do |question| %><div class="card" ">
 		<%= question.id %> <br/>
@@ -19,6 +32,7 @@
 </div>
 
 
-<h1>Current stat</h1>
-Followers:: <%= @followers.size %>
-Following:: <%= @following.size %>
+
+</div>
+
+
