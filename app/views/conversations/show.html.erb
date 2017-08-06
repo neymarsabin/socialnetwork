@@ -2,7 +2,10 @@
 <h2 class="header">Messaging with <%= @conversation.with(current_user).email %></h2>
 
 <div id="conversation-main">
+
 		<div id="conversation-body">
+		<div>
+
 				<%= render @conversation.personal_messages %>
 		</div>
 <div class="chat">
