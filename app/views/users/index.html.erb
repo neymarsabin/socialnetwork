@@ -1,9 +1,11 @@
-<div style="padding-left: 15px;"  >
+<h2 class="header">User Database</h2><hr />
+<div class="users">
 		<div class="form">
 				<%= form_tag users_path, :method => :get do %>
 						<%= text_field_tag :search, params[:search], class: "form-control" %>
-						<%= submit_tag "Search" , class: "btn btn-secondary"%>
-				<% end %>
+						<br><%= submit_tag "Search" , class: "btn btn-secondary"%>
+				<% end %><br>
+				<h2 style="color:red">Top User</h2>
 				<% if @users.size > 0 %>
 						<ul><%= render @users %></ul>
 				<% else %>

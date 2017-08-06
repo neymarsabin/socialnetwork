@@ -1,5 +1,4 @@
-<h1>Following</h1>
-<span><%= @friendships.size %></span>
+<h2 class="header">Following</h2><%= @friendships.size %></span>
 <% if @friendships.size > 0  %>
 		<% @friendships.each do |friend| %>
 				<% if friend.user_image? %>
