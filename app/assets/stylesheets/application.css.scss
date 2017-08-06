@@ -19,13 +19,37 @@
 @import "trix";
 @import "bootstrap";
 @import "navbar";
+@import "md_simple_editor";
 
 body {
-		background-color: #f5f5f5;
+		background-color: white;
 }
 
 #conversation-body {
   max-height: 400px;
   overflow-y: auto;
   margin-bottom: 2em;
+}
+
+
+.show-posts {
+		margin: 5px auto;
+}
+
+.nav-link {
+		color: green;
+}
+
+.answer-section {
+		padding: 20px;
+		font-size: large;
+		margin: 10px;
+}
+
+#answer-body {
+		color: red;
+}
+
+.question-body-form {
+		height: 200px;
 }

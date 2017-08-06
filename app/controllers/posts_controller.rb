@@ -4,6 +4,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+    render formats: [ :html, :json]
   end
   
   def new
@@ -12,8 +13,13 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.new(post_params)
-    @post.save
-    redirect_to root_path
+    if verify_recaptcha(model: @post) && @post.save
+      flash[:notice] = "sucessfuly created post"
+      redirect_to root_path
+    else
+      flash[:notice] = "Invalid captcha please submit the form again."
+      redirect_to :back
+    end
   end
 
   def show
@@ -21,6 +27,7 @@ class PostsController < ApplicationController
     @comment = Comment.new
     @comment.post_id = @post.id
     @comment.user_id = current_user.id
+    @tag_count = @post.tag_list.size
   end 
 
   def edit
@@ -29,7 +36,7 @@ class PostsController < ApplicationController
     if current_user == @post.user
       @post.update(post_params)
       @post.save
-      flash[:notice] == "Edit successfull: #{@post.title} "
+      flash[:notice] == "Edit successfull: "
       redirect_to @post
     end
   end
@@ -38,15 +45,13 @@ class PostsController < ApplicationController
   def destroy
     if current_user == @post.user
       @post.destroy
-      flash[:notice] = "Sucessfully deleted the post: #{@post.title}"
-      redirect_to root_path
-    else
-      flash[:notice] = "You are not authorized to delete this post"
-      redirect_to post_path
+      flash[:notice] = "Sucessfully deleted the post:"
+      redirect_to posts_path
     end
   end
 
-  def like
+
+  def upvote
     @post.upvote_from current_user
     redirect_to :back
   end
@@ -56,6 +61,7 @@ class PostsController < ApplicationController
     redirect_to :back
   end
 
+
   private
 
   def set_post
@@ -63,6 +69,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title,:body)
+    params.require(:post).permit(:title,:body,:tag_list)
   end
 end

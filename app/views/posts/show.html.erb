@@ -1,9 +1,17 @@
-<h1><%= @post.title %></h1>
-<p><%= @post.body.html_safe %></p>
-<% if current_user == @post.user %>
-		<%= link_to "edit", edit_post_path,  class: "btn btn-primary"%>
-		<%= link_to "delete post",post_path,method: :delete,class: "btn btn-primary"%>
-<% end %>		
+<div style="padding-left: 15px;">
+		<h1><%= @post.title %></h1>
+		<div class="froala-view">
+				<%= simple_format(@post.body) %>
+		</div>
+		Number of tags: <%= @tag_count %> <br/>
+		<%# if current_user == @post.user %>
+		<% if can? :update, @post %>
+				<%= link_to "edit", edit_post_path,  class: "btn btn-success"%>
+		<% end %>
+		<% if can? :destroy, @post  %>
+				<%= link_to "delete post",post_path,method: :delete,class: "btn btn-success"%>
+		<% end %>
+		<br/>
 
 <%= link_to "like" , like_post_path(@post), class: "like", method: :put %>
 <%= @post.get_upvotes.size %>
@@ -15,3 +23,5 @@
 <h1>here are some comments</h1>
 <%= render partial: "comments/comments" %>
 <%= render partial: "comments/comment_form" %>
+</div>
+<%= link_to "back", posts_path, class: "btn btn-primary" %>

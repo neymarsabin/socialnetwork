@@ -1,13 +1,17 @@
-<div class="well">
- 		<ul>
-				<% @posts.each do |post| %>
-						<li>Title: <%= post.title %> <br/> </li>
-						<li>Body: <%= post.body.truncate(20).html_safe %></li>
-						<li>User Email: <%= post.email %> <br/></li>
-						<%= link_to "read",post,class: "btn btn-warning"%>
-						<br/>
-						<br/>
-		</ul>
-				<% end %>
-</div>
 
+
+
+<% @posts.each do |post| %>
+		<div class="card-columns">
+				<div class="col-sm-15 show-posts ">
+						<div class="card">
+								<div class="card-block">
+										<h4 class="card-title"><%= post.title %></h4>
+										<h6 class="card-subtitle mb-2 text-muted"><%= post.tag_list.join(',') %></h6>
+										<p class="card-text"><%= post.body.truncate(100).html_safe %></p>
+										<%= link_to "read",post,class: "card-link"%>
+								</div>
+						</div>
+				</div>
+		</div>
+<% end %>

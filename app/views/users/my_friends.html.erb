@@ -1,0 +1,23 @@
+<h1>Following</h1>
+<span><%= @friendships.size %></span>
+<% if @friendships.size > 0  %>
+		<% @friendships.each do |friend| %>
+				<% if friend.user_image? %>
+						<%= image_tag friend.user_image.url(:thumbnail), alt: "no profile pic" %>
+				<% else %>
+						<p>profile picture not found</p>
+				<% end %>
+				<%= friend.email  %>
+				<small><%= link_to "view profile",user_path(friend)%></small> || 
+				<small><%= link_to "unfollow",friendship_path(friend), method: :delete%></small>
+				<br/>
+		<% end %>
+		<% else %>
+		<h1>You don't have any friends at all </h1>
+<% end %>
+
+<h1>Followers</h1>
+<span><%= @friendships_inverse.count %></span>
+<% @friendships_inverse.each do |inverse_friends| %>
+		<%= inverse_friends.email  %>
+<% end %>

@@ -1,18 +1,23 @@
-<p id="notice"><%= notice %></p>
+<div style="padding-left: 15px;"><p id="notice"><%= notice %></p>
 
-<p>
 		<strong>Title:</strong>
-		<%= @question.title %>
-</p>
-
-  <strong>Body:</strong>
-  <%= @question.body %>
-	<br/>
-<small>There are three answers::: </small><%= @question.answers.count %> <br/>
+		<%= @question.title %> <br/>
+		<strong>Body:</strong>
+		<div class="md-preview">
+				<%= @question.body %> <br/>
+		</div>
+		<strong>posted by:</strong>
+<%= @question.user.email %>
+<br/>
+<h4><%= @question.answers.count %> answers </h4>
 <%= render @question.answers %>
 <h3>Reply to thread </h3>
 		<%= render "answers/form" %>
 <br/>
 
-<%= link_to 'Edit', edit_question_path(@question) %> |
+<% if can? :update , @question%>
+		<%= link_to 'Edit', edit_question_path(@question) %>
+<% end %>
+		|
 <%= link_to 'Back', questions_path %>
+</div>

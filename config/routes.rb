@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :activities
+  
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   resources :questions do
     resources :answers
   end
@@ -8,6 +12,7 @@ Rails.application.routes.draw do
   get 'about',to: 'static#about'
   get 'contact',to: 'static#contact'
   get 'profile',to: 'static#profile'
+  get 'settings', to: 'static#settings'
   resources :posts, only: [:new,:create,:show,:destroy,:update,:edit,:index] do
     resources :comments, except: [:show,:index]
     member do
@@ -20,5 +25,10 @@ Rails.application.routes.draw do
   resources :personal_messages, only: [:create,:new]
   resources :conversations, only: [:index,:show]
   resources :users,only: [:index,:show]
+  resources :friendships
+  
+
+  get 'my_friends',to: "users#my_friends"
+  post 'add_friends',to: "users#add_friends"
   
 end

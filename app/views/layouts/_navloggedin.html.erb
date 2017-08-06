@@ -1,0 +1,40 @@
+<ul class="navbar-nav justify-content-end" >
+		<% if user_signed_in? %>
+				<li class="nav-item">
+						<%= link_to "write new post",new_post_path, class: "nav-link"%>
+				</li>
+				<li class="nav-item">
+						<%= link_to "forum",questions_path,class: "nav-link"%>
+				</li>
+				<li class="nav-item">
+						<%= link_to "home",root_path, class: "nav-link"%>
+				</li>
+				<li class="nav-item">
+						<%= link_to 'Users', users_path,class: "nav-link" %>
+				</li>
+				<li class="nav-item">
+						<%= link_to "activities",activities_path, class: "nav-link" %>
+				</li>
+				<li class="nav-item ">
+						<div class="dropdown nav-link">
+								<div class="dropdown-toggle"  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										<button type="button" class="btn btn-secondary"><%= current_user.email %></button> 
+								</div>
+								<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+										<%= link_to "friends", my_friends_path, class: "dropdown-item" %>
+										<%= link_to "edit profile", edit_user_registration_path, class: "dropdown-item" %>
+										<%= link_to "view profile", profile_path, class: "dropdown-item"%>
+										<%= link_to 'Messages', conversations_path,class: "dropdown-item" %>
+										<%= link_to "Settings", settings_path, class: "dropdown-item"%>
+										<%= link_to "Signout",destroy_user_session_path,class: "dropdown-item", method: :delete %>
+								</div>
+						</div>
+				</li>
+		</div>
+
+		<% end %>
+
+		<% if user_signed_in? %>
+
+		<% end %>
+		</ul>

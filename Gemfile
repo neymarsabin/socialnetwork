@@ -27,10 +27,23 @@ gem 'predictable'
 gem 'trix'
 gem 'redis'
 gem 'wysiwyg-rails'
-
+gem 'activeadmin', github: 'activeadmin'
+gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
+gem "friendly_id"
+gem "recaptcha", require: "recaptcha/rails"
+gem "dotenv-rails", require: 'dotenv/rails-now'
+gem 'acts-as-taggable-on', '~> 4.0'
+gem 'public_activity'
+gem 'pundit'
+gem 'cancan'
+gem 'md_simple_editor'
 
 group :development, :test do
   gem 'byebug', platform: :mri
+  gem 'better_errors'
+  gem "binding_of_caller"
+  gem 'rails-erd'
+  gem 'railroady'
 end
 
 group :development do

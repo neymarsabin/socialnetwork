@@ -1,4 +1,8 @@
 class Post < ActiveRecord::Base
+  # include PublicActivity::Model
+  # tracked owner: ->(controller,model ) { controller && controller.current_user },
+  #         title: ->(controller, model ) { controller && model.title }
+
   validates :title,:body, presence: true
   belongs_to :user
   delegate :email, to: :user
@@ -6,5 +10,15 @@ class Post < ActiveRecord::Base
 
   acts_as_votable
 
-  include Predictable::Item
+
+  # extend FriendlyId
+  # friendly_id :title, use: :slugged
+
+
+  def to_param
+    "#{id} #{title}".parameterize
+  end
+
+  acts_as_taggable
+  
 end
