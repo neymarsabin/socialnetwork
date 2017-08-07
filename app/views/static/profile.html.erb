@@ -26,7 +26,8 @@ Following:: <%= @following.size %>
 <h4>Questions</h4><hr/>
 
 <% @questions.each do |question| %><div class="card" ">
-		<%= question.id %> <br/>
+		<%= question.id %> 
+		<%= question.title %><br/>
 		<%= question.body %> <br/></div>
 <% end %>
 </div>
