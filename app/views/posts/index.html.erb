@@ -1,18 +1,20 @@
-<h2 class="header">All Blog Post</h2>
-<p class="header"><a href="posts/new">Create a new Blog</a></p><hr/>
+<div style="padding-left: 200px;"><h2>All Blog Post</h2></div>
+<div style="padding-left: 200px;">Trending Blog Posts!</div>
+<p class="header"><a href="posts/new">Want to create your own? Create a new Blog post.</a></p><hr/>
 
-
+<div class="show-posts">
 <% @posts.each do |post| %>
 		<div class="card-columns">
-				<div class="col-sm-25 show-posts ">
+				<div class="col-sm-40 show-posts ">
 						<div class="card">
 								<div class="card-block">
 										<h4 class="card-title"><%= post.title %></h4>
 										<h6 class="card-subtitle mb-2 text-muted"><%= post.tag_list.join(',') %></h6>
 										<p class="card-text"><%= post.body.truncate(100).html_safe %></p>
-										<%= link_to "read",post,class: "card-link"%>
+										<%= link_to "Read more",post,class: "card-link"%>
 								</div>
 						</div>
 				</div>
 		</div>
 <% end %>
+</div>
