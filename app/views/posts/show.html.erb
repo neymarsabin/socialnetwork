@@ -1,6 +1,10 @@
 <div class="post">
 		<h2 class="header"><%= @post.title %></h2><hr />
-		<span>By: <b><%= link_to @post.username,user_path(@post.user_id) %></b></span><br>
+		<% if @username != "admin" %> 
+				<span>By: <b><%= link_to @username,user_path(@post.user_id) %></b></span><br>
+		<% else %>
+				<span>By:<%= "admin" %></span>
+		<% end %>
 		<br />
 		<div class="froala-view">
 				<%= simple_format(@post.body) %>
