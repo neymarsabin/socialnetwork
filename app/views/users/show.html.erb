@@ -1,16 +1,21 @@
+<div class="users">
 <div style="padding-left: 15px;">
-<div  class="container card-block"><h1><%= @user.email %></h1>
-<p><%= @user.id %></p>
-<p><%= @user.created_at %></p>
-<p><%= @user.updated_at %></p></div>
+<div  class="container card-block">
+<h3><%= @user.username =%></h3>
+<h3><%= @user.email %></h3><br>
+<%= @user.user_image =%><br >
+<span class="spacing">XX Followers</span>
+<span class="spacing">XX Following</span>
+<hr />
 <div class="container row">
 <% @posts.each do |post| %>
 
 <div class="col-sm-4 card">
+
 		<%= post.title %> <br/>
 		<%= post.body.html_safe %></div>
 <% end %></div>
 
-<span class="spacing">XX Followers</span>
-<span class="spacing">XX Following</span>
+
+</div>
 </div>
