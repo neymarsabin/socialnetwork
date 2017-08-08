@@ -2,8 +2,8 @@ class ApplicationController < ActionController::Base
   include Pundit
   include PublicActivity::StoreController 
 
-
   protect_from_forgery with: :exception
+  before_action :authenticate_user!
   before_action :configure_permitted_paramaters, if: :devise_controller?
   before_action :configure_permitted_paramaters_for_registration, if: :devise_controller?
   #rescue_from ActiveRecord::RecordNotFound, :with => {:render => "404"}
