@@ -3,6 +3,7 @@
 		<div class="froala-view">
 				<%= simple_format(@post.body) %>
 		</div>
+		<span>posted by: <%= link_to @post.username,user_path(@post.user_id) %></span>
 		Number of tags: <%= @tag_count %> <br/>
 		<%# if current_user == @post.user %>
 		<% if can? :update, @post %>
