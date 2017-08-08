@@ -3,7 +3,8 @@ class UsersController < ApplicationController
     @users = User.search(params[:search])
   end
   def show
-    @user = User.find(params[:id])
+    #@user = User.find_by_permalink(params[:id])
+    find_user
     @posts = @user.posts.all
   end
 
@@ -20,6 +21,11 @@ class UsersController < ApplicationController
     else
       redirect_to my_friends_path, flash[:error] = "There was an error with adding user as friend"
     end
+  end
+
+  private
+  def find_user
+    @user = User.find(params[:id])
   end
   
 end

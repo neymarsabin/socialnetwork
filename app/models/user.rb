@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
+  before_save :create_permalink
+  
   has_many :posts, dependent: :destroy
   has_many :comments,dependent: :destroy
   has_many :questions,dependent: :destroy
@@ -42,8 +44,14 @@ class User < ApplicationRecord
   end
 
 
-  def to_param
-    "#{id} #{email}".parameterize
+  # def to_param
+  #   permalink
+  #   # "#{id} #{email}".parameterize
+  # end
+
+  private
+  def create_permalink
+    self.permalink = username.downcase
   end
   
 end
