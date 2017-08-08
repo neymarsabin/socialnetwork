@@ -1,10 +1,11 @@
+
 <h2 class="header">Following</h2><%= @friendships.size %></span>
 <% if @friendships.size > 0  %>
 		<% @friendships.each do |friend| %>
 				<% if friend.user_image? %>
 						<%= image_tag friend.user_image.url(:thumbnail), alt: "no profile pic" %>
 				<% else %>
-						<p>profile picture not found</p>
+						<p>Profile picture not found</p>
 				<% end %>
 				<%= friend.email  %>
 				<small><%= link_to "view profile",user_path(friend)%></small> || 
@@ -12,7 +13,7 @@
 				<br/>
 		<% end %>
 		<% else %>
-		<h1>You don't have any friends at all </h1>
+		<h2 style="padding-left: 80px;">You don't have any friends at all </h1>
 <% end %>
 
 <h1>Followers</h1>
