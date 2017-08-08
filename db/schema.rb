@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170808060301) do
+ActiveRecord::Schema.define(version: 20170808063124) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "namespace"
@@ -185,6 +185,7 @@ ActiveRecord::Schema.define(version: 20170808060301) do
     t.integer  "user_image_file_size"
     t.datetime "user_image_updated_at"
     t.string   "username"
+    t.string   "permalink"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
