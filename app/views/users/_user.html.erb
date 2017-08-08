@@ -13,7 +13,7 @@
 						<% if current_user.not_friends_with?(user.id) %>
 								<%= link_to "Follow",add_friends_path(user: current_user, friend: user), method: :post, class: "btn btn-primary" %>
 						<% else %>
-								<%= link_to "Unfollow", friendship_path(user), method: :delete, data: {:confirm => "Are you sure " },class: "btn btn-danger" %>
+								<%= link_to "Unfollow", friendships_path(user), method: :delete, data: {:confirm => "Are you sure " },class: "btn btn-danger" %>
 						<% end %>
 				</td>
 				</div>
