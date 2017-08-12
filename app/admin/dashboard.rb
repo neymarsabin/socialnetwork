@@ -6,12 +6,20 @@ ActiveAdmin.register_page "Dashboard" do
   #       span I18n.t("active_admin.dashboard_welcome.welcome")
   #       small I18n.t("active_admin.dashboard_welcome.call_to_action")
   #     end
-  #   end
+    #   end
+    columns do
+      panel "Welcome to DevStory Admin Panel" do
+        div class: "admin_intro_paragraph" do 
+          p "This is awesome"
+        end
+      end
+    end
+    
     columns do
       column do
         panel "Recent Posts" do
           ul do
-            Post.all.map do |post|
+            Post.order(created_at: :desc).map do |post|
               li link_to(post.title, admin_post_path(post))
             end
           end
@@ -27,7 +35,6 @@ ActiveAdmin.register_page "Dashboard" do
           end
         end
       end
-
       #   column do
       #     panel "Info" do
       #       para "Welcome to ActiveAdmin."
