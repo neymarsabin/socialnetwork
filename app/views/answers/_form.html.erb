@@ -1,5 +1,5 @@
 <%= simple_form_for([@question,@question.answers.build]) do |f| %>
-		<%= f.input :body %>
+		<%= f.input :body,label: "share your answer" %>
 		<%= f.submit %>
 <% end %>
 

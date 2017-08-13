@@ -1,8 +1,7 @@
-<h3>Post your Comment</h3>
-
+<% label_for_comment = "write some comment" %>
 <%= form_for([@post,@comment]) do |f| %>
 		<p>
-				<%= f.label :body %><br/>
+				<%= f.label label_for_comment %><br/>
 				<%= f.text_area :body %>
 		</p>
 		<p>
