@@ -1,7 +1,11 @@
+# requiring the mysql2 gem 
+require 'matrix'
+require 'tf-idf-similarity'
+
 class PostsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_post, only: [:show,:destroy,:update,:edit,:upvote,:downvote]
-  before_action :get_username, only: [:show,:destroy,:update,:edit,:upvote,:downvote]
+  before_action :set_post , only: [:show,:destroy,:update,:edit,:upvote,:downvote]
+  # before_action :get_username,except: [:create,:destroy,:update,:edit]
 
   def index
     @posts = Post.all
@@ -28,6 +32,34 @@ class PostsController < ApplicationController
     @comment = Comment.new
     @comment.post_id = @post.id
     @comment.user_id = current_user.id
+    post_id = @post.id.to_i
+    current_post_body = @post.body
+    # working with recommendation system
+    all_posts = []
+    Post.all.each { |row | all_posts << row["body"]}
+    all_posts_id = []
+    Post.all.each {|row| all_posts_id << row["id"]}
+    corpus = []
+    for x in all_posts do
+      corpus << TfIdfSimilarity::Document.new(x)
+    end
+    model = TfIdfSimilarity::TfIdfModel.new(corpus)
+    matrix = model.similarity_matrix
+
+    @similarity_hash = Hash.new
+    for i in 1..(corpus.length.to_i-1) do
+      # @similars = " " + all_posts[2].truncate(20) + " and " + all_posts[i].truncate(20) + " is "
+      # @similarity_value = matrix[model.document_index(corpus[1]),model.document_index(corpus[i])]
+      @similarity_hash["#{all_posts_id[i]}".to_i] = matrix[model.document_index(corpus[]),model.document_index(corpus[i])]
+    end
+    # process of finding similarity based on posts
+    # arrange the similarity_hash on ascending order based on similarity score
+    new_similarity_hash = @similarity_hash.sort_by {|key,value| value }
+    @perfect_hash = new_similarity_hash.to_h
+    @similar_posts = []
+    @perfect_hash.each do |key,value|
+      @similar_posts << Post.find(key)
+    end
   end 
 
   def edit
@@ -66,10 +98,10 @@ class PostsController < ApplicationController
 
   private
 
-  def get_username
-    user_id = Post.find(params[:id]).user_id
-    @username = User.find(user_id).username
-  end
+  # def get_all_posts
+  #   @posts = Post.all
+  #   @username = User.find(user_id).username
+  # end
   
   def set_post
     @post = Post.find(params[:id])

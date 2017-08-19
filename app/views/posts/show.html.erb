@@ -34,3 +34,13 @@
 
 <%= link_to "Back", posts_path, class: "btn btn-primary" %>
 </div>
+
+<h1>recommendations</h1>
+<%#= @similars %>
+<%#= @similarity_value %>
+<%#= @similarity_hash %>
+<%#= @new_similarity_hash %>
+<%= @perfect_hash %>
+<% @similar_posts.each do |similar_post| %>
+		<li><%= link_to similar_post.title,post_path(similar_post.id) %></li>
+<% end %>

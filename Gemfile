@@ -32,6 +32,7 @@ gem 'public_activity'
 gem 'pundit'
 gem 'cancan'
 gem 'thin'
+gem 'tf-idf-similarity'
 
 group :development, :test do
   gem 'byebug', platform: :mri
