@@ -1,0 +1,4 @@
+* Tasks
+** TODO This is a simple todo task on the post status  
+   [2017-08-27 Sun]
+   [[file:/mnt/hackit/codeds/rails/finalyearproject/socialnetwork/app/models/user.rb::has_many%20:friendships]]

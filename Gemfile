@@ -33,6 +33,8 @@ gem 'pundit'
 gem 'cancan'
 gem 'thin'
 gem 'tf-idf-similarity'
+gem 'state_machine'
+gem 'pry'
 
 group :development, :test do
   gem 'byebug', platform: :mri

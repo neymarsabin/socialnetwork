@@ -1,13 +1,25 @@
 ActiveAdmin.register Post do
+
+  scope :published
+
   actions :all,:except => :edit
 
 
-  scope :published
-  scope :unpublished
+  filter :title
+  filter :id
+  filter :body
+  filter :created_at
+  filter :updated_at
+  
+
+
+  
+  # scope :published
+  # scope :unpublished
   # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-  permit_params :user,:title,:body
+  permit_params :title,:body,:user_id# ,:admin
 #
 # or
 #
@@ -17,19 +29,24 @@ ActiveAdmin.register Post do
 #   permitted
   # end
   form do |f|
+    f.object.state = 'unpublished'
     f.inputs 'Details' do
-      f.input :user,to: :user_id
+      # f.input :admin
       f.input :title
       f.input :body
     end
     actions
   end
 
+  # action_item :view, only: :show do
+  #   link_to 'View on site', post_path(post) if post.published?
+  # end
+
+  
   index do
     column :id
     column :title
     column :body
-    column :username
     actions
   end
 

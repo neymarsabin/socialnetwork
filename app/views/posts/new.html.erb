@@ -19,12 +19,12 @@
 								<%= f.text_field :tag_list, class: "form-control",placeholder: "Tags(separated by commas)" %>
 						</div>
 				</div>
-				<div class="form-group row">
-						<label for="example-captcha-input" class="col-2 col-form-label">Enter The Captcha</label>
-						<div class="col-10">
-								<%= recaptcha_tags %>
-						</div>
-				</div>
+				<!-- <div class="form-group row">
+						 <label for="example-captcha-input" class="col-2 col-form-label">Enter The Captcha</label>
+						 <div class="col-10">
+						 <%# recaptcha_tags %>
+						 </div>
+						 </div> -->
 				<%= f.submit "Create Post", class: "btn btn-success"%>
 		<% end %>
 </div>

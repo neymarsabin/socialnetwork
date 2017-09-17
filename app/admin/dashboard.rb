@@ -9,12 +9,12 @@ ActiveAdmin.register_page "Dashboard" do
     #   end
     columns do
       panel "Welcome to DevStory Admin Panel" do
-        div class: "admin_intro_paragraph" do 
-          p "This is awesome"
+        div class: "admin_intro_paragraph" do
+          p "Welcome to Admin Dashboard"
         end
       end
     end
-    
+
     columns do
       column do
         panel "Recent Posts" do
@@ -41,6 +41,19 @@ ActiveAdmin.register_page "Dashboard" do
       #     end
       #   end
       # end
-    end # content
+    end
+    columns do
+      column do
+        panel "Recent Questions" do
+          ul do
+            Question.order(created_at: :desc).map do |question|
+              li link_to(question.title,admin_question_path(question))
+            end
+          end
+        end
+      end
+    end
+
+    # content
   end
 end

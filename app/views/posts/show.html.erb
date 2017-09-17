@@ -1,9 +1,7 @@
 <div class="post">
 		<h2 class="header"><%= @post.title %></h2><hr />
 		<% if @username != "admin" %> 
-				<span>By: <b><%= link_to @username,user_path(@post.user_id) %></b></span><br>
-		<% else %>
-				<span>By:<%= "admin" %></span>
+				<span>By: <b><%= link_to User.find(@post.user_id).username,user_path(@post.user_id) %></b></span><br>
 		<% end %>
 		<br />
 		<div class="froala-view">
@@ -20,9 +18,9 @@
 		<% end %>
 		
 
-<%= link_to "Upvote:" , like_post_path(@post), class: "like", method: :put %>
+<%= link_to "Upvote:" , like_post_path(@post), class: "like", method: :put,remote: true %>
 <%= @post.get_upvotes.size %>
-<%= link_to "Downvote:",dislike_post_path(@post),class: "dislike",method: :put %>
+<%= link_to "Downvote:",dislike_post_path(@post),class: "dislike",method: :put , remote: true%>
 <%= @post.get_downvotes.size %>
 <hr />
 
@@ -35,12 +33,16 @@
 <%= link_to "Back", posts_path, class: "btn btn-primary" %>
 </div>
 
-<h1>recommendations</h1>
+
 <%#= @similars %>
 <%#= @similarity_value %>
 <%#= @similarity_hash %>
 <%#= @new_similarity_hash %>
-<%= @perfect_hash %>
-<% @similar_posts.each do |similar_post| %>
-		<li><%= link_to similar_post.title,post_path(similar_post.id) %></li>
-<% end %>
+
+<%#= @perfect_hash %>
+<div class="hamro-recommendations">
+		<h1>Similar Posts</h1>
+		<% @similar_posts.each do |similar_post| %>
+				<%= link_to similar_post.title,post_path(similar_post.id) %> <br/>
+		<% end %>
+</div>

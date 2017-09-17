@@ -4,7 +4,7 @@ class AnswersController < ApplicationController
     @answer = @question.answers.create(params[:answer].permit(:body))
     @answer.user_id = current_user.id
     @answer.save
-    
+
     if @answer.save
       flash[:notice] = "Your answer was successfully submitted..."
       redirect_to question_path(@question)
@@ -20,5 +20,5 @@ class AnswersController < ApplicationController
     @answer.destroy
     redirect_to question_path(@question)
   end
-  
+
 end

@@ -1,21 +1,22 @@
 <div class="users">
-<div style="padding-left: 15px;">
-<div  class="container card-block">
-<h3><%= @user.username =%></h3>
-<h3><%= @user.email %></h3><br>
-<%= @user.user_image =%><br >
-<span class="spacing">XX Followers</span>
-<span class="spacing">XX Following</span>
-<hr />
-<div class="container row">
-<% @posts.each do |post| %>
+    <div style="padding-left: 15px;">
+        <div  class="container card-block">
+            <h3><%= @user.username %></h3>
+            <h3><%= @user.email %></h3><br>
+            <%  if @user.user_image %><br >
+								<%= @user.user_image %>
+						<% end %>
+						<span class="spacing"><%= @followers.size %> Followers</span>
+						<span class="spacing"><%= @following.size %> Following</span>
+            <hr />
+            <div class="container row">
+                <% @posts.each do |post| %>
+                    <div class="col-sm-4 card">
+                        <%= post.title %> <br/>
+                        <%= post.body.html_safe %></div>
+                <% end %></div>
+                
 
-<div class="col-sm-4 card">
-
-		<%= post.title %> <br/>
-		<%= post.body.html_safe %></div>
-<% end %></div>
-
-
-</div>
-</div>
+        </div>
+    </div>
+    

@@ -184,6 +184,10 @@ GEM
     orm_adapter (0.5.0)
     polyamorous (1.3.1)
       activerecord (>= 3.0)
+    pry (0.10.4)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
     public_activity (1.5.0)
       actionpack (>= 3.0.0)
       activerecord (>= 3.0)
@@ -250,6 +254,7 @@ GEM
     simple_form (3.4.0)
       actionpack (> 4, < 5.1)
       activemodel (> 4, < 5.1)
+    slop (3.6.0)
     spring (2.0.1)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -262,6 +267,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    state_machine (1.2.0)
     tf-idf-similarity (0.1.6)
       unicode_utils (~> 1.4)
     thin (1.7.2)
@@ -316,6 +322,7 @@ DEPENDENCIES
   listen (~> 3.0.5)
   mysql2 (>= 0.3.18, < 0.5)
   paperclip!
+  pry
   public_activity
   puma (~> 3.0)
   pundit
@@ -328,6 +335,7 @@ DEPENDENCIES
   simple_form
   spring
   spring-watcher-listen (~> 2.0.0)
+  state_machine
   tf-idf-similarity
   thin
   trix

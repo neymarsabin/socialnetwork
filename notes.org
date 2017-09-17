@@ -1,0 +1,34 @@
+* Tasks
+** TODO This is just a test capture from rails Gemfile 
+   [2017-08-27 Sun]
+   [[file:/mnt/hackit/codeds/rails/finalyearproject/socialnetwork/Gemfile][file:/mnt/hackit/codeds/rails/finalyearproject/socialnetwork/Gemfile]]
+* Post Recommendations
+**  
+   Cosine similarity as it's name suggests identifies the similarity between two(or more) vectors .The dot product and norm has 
+   been identified, then the cosine similarity of two vectors is simply the dot product of two unit vectors [5].
+   1. Term Frequency(TF)
+      Term Frequency also known as TF measures the number of times a term(word) occurs in a document.Given below are the terms and their 
+      frequency on each of the document [6].
+      For example: 
+      document = "I live in Nepal and Nepal is the best country in the world"
+      term frequencies can be listed as: 
+      I = 1, live = 1 , in = 2, Nepal = 2, and = 1, is = 1, the = 2, best = 1, country = 1, world = 1
+   2. Normalized Term Frequency 
+      I = 1/13, live = 1/13, in = 2/13, Nepal = 2/13, and = 1/13, is = 1/13, the = 2/13, best = 1/13, country = 1/13, world = 1/13
+   3. Inversed Document Frequency(IDF)
+      In the above document for IDF(Nepal): 
+      For example:
+      IDF(Nepal) = 1 + log(Total Number of Documents / Number of Documents with term "Nepal" in it)
+   4. TF*IDF
+      We are trying to find out the relevant document that are similar to a given document.
+      We should find tf*idf for all the terms in the given document.
+   5. Vector Space Model(Cosine Similarity) 
+      Cosine Similarity(d1,d2) = Dot product(d1, d2) / ||d1|| * ||d2||
+      Dot product (d1,d2) = d1[0] * d2[0] + d1[1] * d2[1] * … * d1[n] * d2[n]
+      ||d1|| = square root(d1[0]2 + d1[1]2 + ... + d1[n]2)
+      ||d2|| = square root(d2[0]2 + d2[1]2 + ... + d2[n]2)
+   6. In this way similarity between posts are determined.
+
+
+[5] http://www.thefactmachine.com/cosine-similarity/
+[6] https://janav.wordpress.com/2013/10/27/tf-idf-and-cosine-similarity/

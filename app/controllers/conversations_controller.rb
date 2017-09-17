@@ -20,6 +20,4 @@ class ConversationsController < ApplicationController
   def check_participating!
     redirect_to root_path unless @conversation && @conversation.participates?(current_user)
   end
-  
-  
 end

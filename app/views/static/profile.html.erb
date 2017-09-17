@@ -1,4 +1,4 @@
-<center><h1><%= current_user.email =%>'s Profile<br>
+<center><h1><%= current_user.username =%>'s Profile<br>
 
 </h1>
 <a href="users/edit">Edit</a> |
@@ -11,8 +11,8 @@
 <hr />
 
 <div class="profile">
-<%= image_tag current_user.user_image.url(:medium),alt: "something is wrong" %>
-
+<%= image_tag current_user.user_image.url(:medium),alt: "no profile picture found" %>
+		<br/>
 Followers:: <%= @followers.size %>
 Following:: <%= @following.size %>
 <br>

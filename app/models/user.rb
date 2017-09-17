@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :confirmable
+         :recoverable, :rememberable, :trackable, :validatable #:confirmable
 
   before_save :create_permalink
   
@@ -51,7 +51,9 @@ class User < ApplicationRecord
 
   private
   def create_permalink
-    self.permalink = username.downcase
+    if username
+      self.permalink = username.downcase
+    end
   end
   
 end
